@@ -1,9 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import About from './Components/About';
+import APIPageComponent from './Components/APIPageComponent';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  // Route,
+  Link
+} from "react-router-dom";
+
+const sampleDataAbout = {
+  title: 'My Custom About Title',
+  para: 'My custom About description',
+  listedItems: ['First custom About item', 'second custom About item']
+}
+const sampleDataAPI = {
+  title: 'Custom API title',
+  para: 'Custom API description',
+  iframelink: 'google.com'
+}
+
+const router = createBrowserRouter([
+  {
+    path : '/',
+    element : (
+      <div>
+        <Link to="/about">ABOUT Link</Link>
+        <APIPageComponent title={sampleDataAPI.title} description={sampleDataAPI.para} iframelink={sampleDataAPI.iframelink}></APIPageComponent>
+      </div>
+    )
+  },
+  {
+    path : '/about',
+    element : <About title={sampleDataAbout.title} description={sampleDataAbout.para} listItems={sampleDataAbout.listedItems}></About>
+  }
+])
 
 function App() {
   return (
-    <h1>Initial App</h1>
+    <>
+      <div>
+        <h1>Initial App</h1>
+        <RouterProvider router={router}></RouterProvider>
+      </div>
+    </>
   );
 }
 

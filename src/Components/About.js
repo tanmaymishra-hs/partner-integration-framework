@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function About(props) {
   return (
@@ -10,6 +11,7 @@ export default function About(props) {
                 <li>{t}</li>
             ))}
         </ul>
+        <Link to="/">Back to Home</Link>
     </div>
   )
 }

@@ -6,7 +6,6 @@ export default function APIPageComponent(props) {
     <div>
       <Title value={props.title}></Title>
       <p>{props.description}</p>
-      <iframe src={props.iframelink}></iframe> 
     </div>
   );
 }

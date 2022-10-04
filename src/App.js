@@ -1,12 +1,10 @@
 import './App.css';
 import About from './Components/About';
 import APIPageComponent from './Components/APIPageComponent';
-import 'react-pro-sidebar/dist/css/styles.css';
 import Sidebar from './Components/Sidebar';
 import {
   Routes,
-  Route,
-  BrowserRouter
+  Route
 } from "react-router-dom";
 
 
@@ -23,18 +21,17 @@ const sampleDataAPI = {
 
 function App() {
   return (
-    <>
-      <div>
-        <h1>Initial App</h1>
-          <Sidebar></Sidebar>
-          <Routes>
-            <Route exact path="/" element={<APIPageComponent title={sampleDataAPI.title} description={sampleDataAPI.para} iframelink={sampleDataAPI.iframelink}></APIPageComponent>}> 
+    <div className="main">
+      <Sidebar />
+      <div className="container">
+        <Routes>
+            <Route exact path="/" element={<APIPageComponent title={sampleDataAPI.title} description={sampleDataAPI.para}></APIPageComponent>}> 
             </Route>
             <Route exact path="/about" element={<About title={sampleDataAbout.title} description={sampleDataAbout.para} listItems={sampleDataAbout.listedItems}></About>}>
             </Route>
-          </Routes>
-      </div>
-    </>
+        </Routes>
+      </div> 
+    </div>
   );
 }
 

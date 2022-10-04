@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Title from "./Title";
 
 export default function APIPageComponent(props) {
   return (
     <div>
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
-        <iframe src={props.iframelink}></iframe>
+      <Title value={props.title}></Title>
+      <p>{props.description}</p>
+      <iframe src={props.iframelink}></iframe> 
     </div>
-  )
+  );
 }

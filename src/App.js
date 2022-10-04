@@ -26,7 +26,6 @@ function App() {
     <>
       <div>
         <h1>Initial App</h1>
-        <BrowserRouter>
           <Sidebar></Sidebar>
           <Routes>
             <Route exact path="/" element={<APIPageComponent title={sampleDataAPI.title} description={sampleDataAPI.para} iframelink={sampleDataAPI.iframelink}></APIPageComponent>}> 
@@ -34,7 +33,6 @@ function App() {
             <Route exact path="/about" element={<About title={sampleDataAbout.title} description={sampleDataAbout.para} listItems={sampleDataAbout.listedItems}></About>}>
             </Route>
           </Routes>
-        </BrowserRouter>
       </div>
     </>
   );

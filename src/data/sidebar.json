@@ -2,7 +2,7 @@
     {
         "title": "General",
         "icon": "bi-gear-fill",
-        "childrens": [
+        "children": [
             {
                 "title": "Home",
                 "icon": "bi-house-fill",
@@ -16,7 +16,7 @@
             {
                 "title": "Contact",
                 "icon": "bi-phone-fill",
-                "childrens": [
+                "children": [
                     {
                         "title": "Facebook",
                         "icon": "bi-facebook"
@@ -40,7 +40,7 @@
     {
         "title": "Account",
         "icon": "bi-info-circle-fill",
-        "childrens": [
+        "children": [
             {
                 "title": "Login",
                 "path": "/login"
@@ -62,21 +62,21 @@
     {
         "title": "Profile",
         "icon": "bi-person-fill",
-        "childrens": [
+        "children": [
             {
                 "title": "Profile",
                 "path": "/profile"
             },
             {
                 "title": "Settings",
-                "childrens": [
+                "children": [
                     {
                         "title": "Account",
                         "path": "/settings/account"
                     },
                     {
                         "title": "Billing",
-                        "childrens": [
+                        "children": [
                             {
                                 "title": "Payment",
                                 "path": "/settings/billing/payment"
@@ -102,7 +102,7 @@
     {
         "title": "Advance",
         "icon": "bi-view-list",
-        "childrens": [
+        "children": [
             {
                 "title": "Search",
                 "path": "/search"

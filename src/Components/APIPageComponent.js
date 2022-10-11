@@ -7,8 +7,8 @@ export default function APIPageComponent(props) {
     <div>
       <Title value={props.title}></Title>
       <p>{props.description}</p>
-      {/* <Input type="text" name="X-HS-IAuth" placeHolder="my placeholder text"></Input>
-      <Input type="submit"/> */}
+      <Input type="text" name="X-HS-IAuth" placeHolder="my placeholder text"></Input>
+      <Input type="submit"/>
     </div>
   );
 }

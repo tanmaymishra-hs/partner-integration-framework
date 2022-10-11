@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 export default function Input(props) {
     const [inputValue, setinputValue] = useState("");
@@ -10,7 +10,7 @@ export default function Input(props) {
         {props.type !== "submit" && 
             <label htmlFor={props.name}>{props.name + ": "}</label>
         }
-        <input type={props.type} name={props.name} placeHolder={props.placeHolder} value={inputValue} onChange={handleOnChange}></input><br></br>
+        <input type={props.type} name={props.name} placeHolder={props.placeHolder} value={inputValue || "Submit"} onChange={handleOnChange}></input><br></br>
     </>
     )
 }

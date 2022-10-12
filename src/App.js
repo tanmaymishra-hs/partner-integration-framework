@@ -1,11 +1,11 @@
 import './App.css';
 import About from './Components/About';
-import APIPageComponent from './Components/APIPageComponent';
 import Sidebar from './Components/Sidebar';
 import {
   Routes,
   Route
 } from "react-router-dom";
+import FormElement from './Components/FormElement';
 
 
 const sampleDataAbout = {
@@ -20,12 +20,23 @@ const sampleDataAPI = {
 };
 
 function App() {
+  let nameOf  = "X-HS-IAuth"
+  let type = "string"
+  let placeholder = "X-HS-IAuth"
+  let inputArray = [
+    {"name": "Content-Type", 
+            "type": "text"},
+            {"name": "X-HS-IAuth", 
+            "type": "text"},
+            {"name": "X-HS-Access-Key", 
+            "type": "text"}
+  ]
   return (
     <div className="main">
       <Sidebar />
       <div className="container">
         <Routes>
-            <Route exact path="/" element={<APIPageComponent title={sampleDataAPI.title} description={sampleDataAPI.para}></APIPageComponent>}> 
+            <Route exact path="/" element={<FormElement inputArray = {inputArray}/>}> 
             </Route>
             <Route exact path="/about" element={<About title={sampleDataAbout.title} description={sampleDataAbout.para} listItems={sampleDataAbout.listedItems}></About>}>
             </Route>

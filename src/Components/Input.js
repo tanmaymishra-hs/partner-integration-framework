@@ -7,10 +7,14 @@ export default function Input(props) {
     }
     return (
     <>
-        {props.type !== "submit" && 
-            <label htmlFor={props.name}>{props.name + ": "}</label>
+        {props.inputType !== "submit" && 
+            <label style={{'display':'inline-block'}} htmlFor={props.name}>
+                <p style={{'display':'block'}}>{props.name + ": "}</p>
+                <p style={{'display':'block'}}>{props.type}</p>
+                <p style={{'display':'block'}}>{props.requestContentType}</p>
+            </label>
         }
-        <input type={props.type} name={props.name} placeHolder={props.placeHolder} value={inputValue} onChange={handleOnChange}></input><br></br>
+        <input style={{'display':'inline-block'}} type={props.inputType} name={props.name} placeHolder={props.placeHolder} value={inputValue} onChange={handleOnChange}></input><br></br>
     </>
     )
 }

@@ -7,18 +7,6 @@ import {
 } from "react-router-dom";
 import FormElement from './Components/FormElement';
 
-
-const sampleDataAbout = {
-  title: 'My Custom About Title',
-  para: 'My custom About description',
-  listedItems: ['First custom About item', 'second custom About item']
-};
-const sampleDataAPI = {
-  title: 'Custom API title',
-  para: 'Custom API description',
-  iframelink: 'https://www.hotstar.com'
-};
-
 function App() {
   let nameOf  = "X-HS-IAuth"
   let type = "string"
@@ -38,7 +26,7 @@ function App() {
         <Routes>
             <Route exact path="/" element={<FormElement inputArray = {inputArray}/>}> 
             </Route>
-            <Route exact path="/about" element={<About title={sampleDataAbout.title} description={sampleDataAbout.para} listItems={sampleDataAbout.listedItems}></About>}>
+            <Route exact path="/about" element={<About></About>}>
             </Route>
         </Routes>
       </div> 

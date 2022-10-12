@@ -1,0 +1,38 @@
+{
+    "config" : {
+    "create": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type", 
+            "type": "text"},
+            {"name": "X-HS-IAuth", 
+            "type": "text"},
+            {"name": "Content-Type", 
+            "type": "text"}
+        ],
+        "bodyParams": [
+            {
+                "partnerName": "TEST",
+                "country": "tn",
+                "startDateEnabled": "FALSE",
+                "expiryDateEnabled": "FALSE",
+                "webhookUrl": "http://localhost:8080/test-tn/webhook"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/create"
+    },
+    "listPartners": {
+        "headers": [
+            {"name": "Content-Type", 
+            "type": "text"},
+            {"name": "X-HS-IAuth", 
+            "type": "text"},
+            {"name": "X-HS-Access-Key", 
+            "type": "text"}
+        ],
+        "bodyParams": [],
+        "path": "http://localhost:8080/v2/partner/create"
+    }
+}
+}

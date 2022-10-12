@@ -7,24 +7,15 @@ import {
 } from "react-router-dom";
 import FormElement from './Components/FormElement';
 
+let config = require("./config.json")
+
 function App() {
-  let nameOf  = "X-HS-IAuth"
-  let type = "string"
-  let placeholder = "X-HS-IAuth"
-  let inputArray = [
-    {"name": "Content-Type", 
-            "type": "text"},
-            {"name": "X-HS-IAuth", 
-            "type": "text"},
-            {"name": "X-HS-Access-Key", 
-            "type": "text"}
-  ]
   return (
     <div className="main">
       <Sidebar />
       <div className="container">
         <Routes>
-            <Route exact path="/" element={<FormElement inputArray = {inputArray}/>}> 
+            <Route exact path="/" element={<FormElement obj = {config["config"]["create"]} title = "Create Partner" description = "This Api helps you to create a partner in the system"/>}> 
             </Route>
             <Route exact path="/about" element={<About></About>}>
             </Route>

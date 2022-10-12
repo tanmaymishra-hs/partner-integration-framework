@@ -14,7 +14,7 @@ export default function Input(props) {
                 <p style={{'display':'block'}}>{props.requestContentType}</p>
             </label>
         }
-        <input style={{'display':'inline-block'}} type={props.inputType} name={props.name} placeHolder={props.placeHolder} value={inputValue} onChange={handleOnChange}></input><br></br>
+        <input style={{'display':'inline-block'}} type={props.inputType} name={props.name} placeholder={props.placeholder} value={inputValue} onChange={handleOnChange}></input><br></br>
     </>
     )
 }

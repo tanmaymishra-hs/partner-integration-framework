@@ -1,126 +1,74 @@
 [
     {
-        "title": "General",
-        "icon": "bi-gear-fill",
+        "title": "Home",
+        "path": "/"
+    },
+    {
+        "title": "About",
+        "path": "/about"
+    },
+    {
+        "title": "Admin APIs",
         "children": [
             {
-                "title": "Home",
-                "icon": "bi-house-fill",
-                "path": "/"
+                "title": "Create Partner API",
+                "path" : "/admin/create-partner"
             },
             {
-                "title": "About",
-                "icon": "bi-info-circle-fill",
-                "path": "/about"
+                "title": "List Partners API",
+                "path" : "/admin/list-partner"
             },
             {
-                "title": "Contact",
-                "icon": "bi-phone-fill",
+                "title": "Edit Partner API",
+                "path" : "/admin/edit-partner"
+            }
+        ]
+    },
+    {
+        "title": "Public APIs",
+        "children": [
+            {
+                "title" : "Sync APIs",
                 "children": [
                     {
-                        "title": "Facebook",
-                        "icon": "bi-facebook"
+                        "title" : "Create Subscription",
+                        "path" : "/public/sync/create-subscription"
                     },
                     {
-                        "title": "Twitter",
-                        "icon": "bi-twitter"
+                        "title" : "Update Subscription",
+                        "path" : "/public/sync/update-subscription"
                     },
                     {
-                        "title": "Instagram",
-                        "icon": "bi-instagram"
+                        "title" : "Get Subscriptions",
+                        "path" : "/public/sync/get-subscription"
                     }
                 ]
             },
             {
-                "title": "FAQ",
-                "icon": "bi-question-circle-fill"
-            }
-        ]
-    },
-    {
-        "title": "Account",
-        "icon": "bi-info-circle-fill",
-        "children": [
-            {
-                "title": "Login",
-                "path": "/login"
-            },
-            {
-                "title": "Register",
-                "path": "/register"
-            },
-            {
-                "title": "Forgot Password",
-                "path": "/forgot-password"
-            },
-            {
-                "title": "Reset Password",
-                "path": "/reset-password"
-            }
-        ]
-    },
-    {
-        "title": "Profile",
-        "icon": "bi-person-fill",
-        "children": [
-            {
-                "title": "Profile",
-                "path": "/profile"
-            },
-            {
-                "title": "Settings",
+                "title": "Async APIs",
                 "children": [
                     {
-                        "title": "Account",
-                        "path": "/settings/account"
+                        "title" : "Create",
+                        "path" : "/public/async/create"
                     },
                     {
-                        "title": "Billing",
-                        "children": [
-                            {
-                                "title": "Payment",
-                                "path": "/settings/billing/payment"
-                            },
-                            {
-                                "title": "Subscription",
-                                "path": "/settings/billing/subscription"
-                            }
-                        ]
+                        "title" : "Update User Details",
+                        "path" : "/public/async/update"
                     },
                     {
-                        "title": "Notifications",
-                        "path": "/settings/notifications"
+                        "title" : "Webhook",
+                        "path" : "/public/async/webhook"
+                    },
+                    {
+                        "title" : "Update Subscriptions",
+                        "path" : "/public/async/update-subscription"
                     }
                 ]
-            },
-            {
-                "title": "Logout",
-                "path": "/logout"
-            }
-        ]
-    },
-    {
-        "title": "Advance",
-        "icon": "bi-view-list",
-        "children": [
-            {
-                "title": "Search",
-                "path": "/search"
-            },
-            {
-                "title": "History",
-                "path": "/history"   
             }
         ]
     },
     {
         "title": "Support",
-        "icon": "bi-question-circle-fill",
         "path": "/support"
-    },
-    {
-        "title": "Report Bug",
-        "icon": "bi-bug",
-        "path": "/report-bug"
     }
 ]

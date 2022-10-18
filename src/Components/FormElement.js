@@ -10,25 +10,25 @@ export default function FormElement(props) {
         <br/>
         {props.obj["pathParams"] && props.obj["pathParams"].map((element, idx) => (
           <>
-          <Input name = {element.name} inputType = {element.type} placeholder = {element.name} type="pathParams" requestContentType="string"/>
+          <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
         {props.obj["queryParams"] && props.obj["queryParams"].map((element, idx) => (
           <>
-          <Input name = {element.name} inputType = {element.type} placeholder = {element.name} type="queryParams" requestContentType="string"/>
+          <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
         {props.obj["headers"] && props.obj["headers"].map((element, idx) => (
           <>
-            <Input name = {element.name} inputType = {element.type} placeholder = {element.name} type="header" requestContentType="string"/>
+            <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
             </>
         ))}
         {props.obj["bodyParams"] && props.obj["bodyParams"].map((element, idx) => (
-          <>{console.log('We are isnide body loop')}
-            <Input name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="string"/>
+          <>
+            <Input name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
             <br/>
             </>
         ))}

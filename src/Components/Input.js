@@ -15,7 +15,7 @@ export default function Input(props) {
         </label>
         
         {typeof props.placeholder !== "object"? 
-            <input style={{'display':'inline-block', 'position':'absolute'}} type={props.inputType} name={props.name} placeholder={props.placeholder} value={inputValue} onChange={handleOnChange}></input>:
+            <input style={{'display':'inline-block', 'position':'absolute'}} type="text" name={props.name} placeholder={props.placeholder} value={inputValue} onChange={handleOnChange}></input>:
             <textarea style={{'display':'inline-block', 'position':'absolute'}} placeholder={JSON.stringify(props.placeholder)} onChange={handleOnChange}>{inputValue}</textarea>
         }
     </div>

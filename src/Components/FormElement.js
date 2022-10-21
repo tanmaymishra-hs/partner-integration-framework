@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Input from './Input'
 export default function FormElement(props) {
+
   const handleSubmit = async (event)=>{
     event.preventDefault();
     console.log(values)
@@ -26,25 +27,25 @@ export default function FormElement(props) {
         <br/>
         {props.obj["pathParams"] && props.obj["pathParams"].map((element) => (
           <>
-          <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type="pathParams" requestContentType="string"/>
+          <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
         {props.obj["queryParams"] && props.obj["queryParams"].map((element, idx) => (
           <>
-          <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type="queryParams" requestContentType="string"/>
+        <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
         {props.obj["headers"] && props.obj["headers"].map((element, idx) => (
           <>
-            <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type="header" requestContentType="string"/>
+            <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
             </>
         ))}
         {props.obj["bodyParams"] && props.obj["bodyParams"].map((element, idx) => (
           <>
-            <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="string"/>
+            <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
             <br/>
             </>
         ))}

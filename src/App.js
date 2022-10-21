@@ -15,7 +15,7 @@ function App() {
       <Sidebar />
       <div className="container">
         <Routes>
-            <Route exact path="/" element={<FormElement obj = {config["config"]["create"]} title = "Create Partner" description = "This Api helps you to create a partner in the system"/>}> 
+            <Route exact path="/" element={<FormElement obj = {config["config"]["apis"]["create"]} title = "Create Partner" description = "This Api helps you to create a partner in the system"/>}> 
             </Route>
             <Route exact path="/about" element={<About></About>}>
             </Route>

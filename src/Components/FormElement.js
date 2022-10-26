@@ -4,18 +4,20 @@ export default function FormElement(props) {
 
   const handleSubmit = async (event)=>{
     event.preventDefault();
-    console.log(values)
     const headers = new Headers({
       'Content-Type': values["Content-Type"],
-      'X-HS-AccessKey': values["X-HS-Access-Key"]
+      'X-HS-AccessKey': values["X-HS-AccessKey"]
     })
+    try{
+      await fetch(`http://localhost:8080/v2/partner/subscription/${values["SubscriptionId"]}`, {
+      method: 'GET',
+      headers,
+      mode: 'cors'
+         })
+         .then(results => console.log(results))}
 
-    await fetch(`https://partner-orches-service-api-gateway-aps1.pp.hotstar-labs.com/v2/partner/subscription/${values["partnerSubscriptionId"]}`, {
-     method: 'GET',
-     headers,
-     mode: 'no-cors'
-        })
-        .then(results => console.log(results))
+    catch(error){console.error(error)}
+
   }
   const [values, setValues] = useState({})
   return (

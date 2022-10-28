@@ -1,9 +1,22 @@
 import React, { useState } from 'react'
 import Input from './Input'
+import PropTypes from 'prop-types'
+
+
 export default function FormElement(props) {
 
+  const mapInputValues = (element)=>{
+    const {name, type, requestContentType} = element
+    return{
+      name: name,
+      type: type,
+      requestContentType: requestContentType
+    }
+  }
+  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = ""} = props
   const handleSubmit = async (event)=>{
     event.preventDefault();
+
     const headers = new Headers({
       'Content-Type': values["Content-Type"],
       'X-HS-AccessKey': values["X-HS-AccessKey"]
@@ -22,37 +35,37 @@ export default function FormElement(props) {
   const [values, setValues] = useState({})
   return (
     <form>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <br/>
-        <h3>{props.description}</h3>
+        <h3>{description}</h3>
         <br/>
         <br/>
-        {props.obj["pathParams"] && props.obj["pathParams"].map((element) => (
+        {pathParams && pathParams.map((element) => (
           <>
           <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
-        {props.obj["queryParams"] && props.obj["queryParams"].map((element, idx) => (
+        {queryParams && queryParams.map((element, idx) => (
           <>
         <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
-        {props.obj["headers"] && props.obj["headers"].map((element, idx) => (
+        {headers && headers.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
             </>
         ))}
-        {props.obj["bodyParams"] && props.obj["bodyParams"].map((element, idx) => (
+        {bodyParams && bodyParams.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
             <br/>
             </>
         ))}
         {
-          props.obj["bodyParams"]&& <>
+          bodyParams&& <>
           <br/>
           <br/>
           <br/>
@@ -62,4 +75,9 @@ export default function FormElement(props) {
         <button input="submit" style={{'height':'30px','width':'300px'}} onClick={handleSubmit}>Execute</button>        
     </form>
   )
+}
+FormElement.propTypes ={
+  obj : PropTypes.object,
+  title : PropTypes.string,
+  description : PropTypes.string
 }

@@ -5,9 +5,10 @@ export default function FormElement(props) {
     <form>
         <h2>{props.title}</h2>
         <br/>
-        <h3>{props.description}</h3>
+        <h3 className='Body-1-Medium'>{props.description}</h3>
         <br/>
         <br/>
+        <div className='Input'>
         {props.obj["pathParams"] && props.obj["pathParams"].map((element, idx) => (
           <>
           <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
@@ -32,7 +33,8 @@ export default function FormElement(props) {
             <br/>
             </>
         ))}
-        <button input="submit" style={{'height':'20px','width':'300px'}}>Execute</button>
+        <button className="btn" style={{"width":"35%"}} input="submit"><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        </div>
     </form>
   )
 }

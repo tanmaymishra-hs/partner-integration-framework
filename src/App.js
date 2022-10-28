@@ -12,7 +12,7 @@ let config = require("./config.json")
 function App() {
   return (
     <div className="main">
-      <Sidebar />
+      <Sidebar className="sidebarClass"/>
       <div className="container">
         <Routes>
             <Route exact path="/" element={<FormElement obj = {config["config"]["apis"]["create"]} title = "Create Partner" description = "This Api helps you to create a partner in the system"/>}> 

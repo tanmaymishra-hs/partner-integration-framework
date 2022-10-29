@@ -8,7 +8,7 @@ export default function SidebarItem({item}){
     if(item.children){
         return (
             <div className={open ? "sidebar-item open" : "sidebar-item"}>
-                <div className="sidebar-title" onClick={() => setOpen(!open)}>
+                <div className="sidebar-title Title-1" onClick={() => setOpen(!open)}>
                     <span>
                         { item.icon && <i className={item.icon}></i> }
                         {item.title}    
@@ -22,7 +22,7 @@ export default function SidebarItem({item}){
         )
     }else{
         return (
-            <Link to={item.path} className="sidebar-item plain">
+            <Link to={item.path} className="sidebar-item plain Title-2">
               { item.icon && <i className={item.icon}></i> }
               {item.title}
             </Link>

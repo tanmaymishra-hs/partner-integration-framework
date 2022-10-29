@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="main">
      <ErrorBoundary>
-      <Sidebar />
+      <Sidebar className="sidebarClass"/>
       <div className="container">
         <Routes>
             <Route exact path="/" element={ <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/>}> 

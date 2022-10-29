@@ -37,10 +37,11 @@ export default function FormElement(props) {
     <form>
         <h2>{title}</h2>
         <br/>
-        <h3>{description}</h3>
+        <h3 className='Body-1-Medium'>{description}</h3>
         <br/>
         <br/>
-        {pathParams && pathParams.map((element) => (
+        <div className='Input'>
+        {pathParams && pathParams.map((element, idx) => (
           <>
           <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
@@ -72,7 +73,8 @@ export default function FormElement(props) {
           <br/>
           </> 
         }
-        <button input="submit" style={{'height':'30px','width':'300px'}} onClick={handleSubmit}>Execute</button>        
+        <button className="btn" style={{"width":"35%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        </div>
     </form>
   )
 }

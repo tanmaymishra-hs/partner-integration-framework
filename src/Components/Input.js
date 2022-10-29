@@ -1,9 +1,28 @@
 import React, {useState} from 'react'
 
 export default function Input(props) {
+    const {placeholder} = props.placeholder || {}
+    
     const [inputValue, setinputValue] = useState("");
+    const [value, setValue] = useState(JSON.stringify(placeholder));
+
     const handleOnChange = (event)=>{
-        setinputValue(event.target.value)
+        if(props.inputType === "JSON")
+        {   
+            setValue(event.target.value)
+            props.setValues(prevState => ({
+                ...prevState,
+                [props.name]: value
+            }));
+        }
+        else{
+            setinputValue(event.target.value)
+            props.setValues(prevState => ({
+                ...prevState,
+                [props.name]: inputValue
+            }));
+        }
+        
     }
 
     return (
@@ -15,9 +34,10 @@ export default function Input(props) {
         </label>
         
         {typeof props.placeholder !== "object"? 
-            <input className="row"  type="text" name={props.name} placeholder={props.placeholder} value={inputValue} onChange={handleOnChange}></input>:
-            <textarea className= "row" placeholder={JSON.stringify(props.placeholder)} onChange={handleOnChange}>{inputValue}</textarea>
-        }
+            <input className="row"  type="text" name={props.name} placeholder={placeholder} value={inputValue} onChange={handleOnChange}></input>:
+            <textarea className= "row" value={value} placeholder={JSON.stringify(placeholder)} onChange={handleOnChange} rows={8} cols={40}>{value}</textarea>        
+            }
+
     </div>
     )
 }

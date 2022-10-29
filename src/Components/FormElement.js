@@ -1,40 +1,85 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from './Input'
+import PropTypes from 'prop-types'
+
+
 export default function FormElement(props) {
+
+  const mapInputValues = (element)=>{
+    const {name, type, requestContentType} = element
+    return{
+      name: name,
+      type: type,
+      requestContentType: requestContentType
+    }
+  }
+  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = ""} = props
+  const handleSubmit = async (event)=>{
+    event.preventDefault();
+
+    const headers = new Headers({
+      'Content-Type': values["Content-Type"],
+      'X-HS-AccessKey': values["X-HS-AccessKey"]
+    })
+    try{
+      await fetch(`http://localhost:8080/v2/partner/subscription/${values["SubscriptionId"]}`, {
+      method: 'GET',
+      headers,
+      mode: 'cors'
+         })
+         .then(results => console.log(results))}
+
+    catch(error){console.error(error)}
+
+  }
+  const [values, setValues] = useState({})
   return (
     <form>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <br/>
-        <h3 className='Body-1-Medium'>{props.description}</h3>
+        <h3 className='Body-1-Medium'>{description}</h3>
         <br/>
         <br/>
         <div className='Input'>
-        {props.obj["pathParams"] && props.obj["pathParams"].map((element, idx) => (
+        {pathParams && pathParams.map((element, idx) => (
           <>
-          <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
+          <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
-        {props.obj["queryParams"] && props.obj["queryParams"].map((element, idx) => (
+        {queryParams && queryParams.map((element, idx) => (
           <>
-          <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
+        <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
           </>
         ))}
-        {props.obj["headers"] && props.obj["headers"].map((element, idx) => (
+        {headers && headers.map((element, idx) => (
           <>
-            <Input name = {element.name} inputType = {element.inputType} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
+            <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
             </>
         ))}
-        {props.obj["bodyParams"] && props.obj["bodyParams"].map((element, idx) => (
+        {bodyParams && bodyParams.map((element, idx) => (
           <>
-            <Input name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
+            <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
             <br/>
             </>
         ))}
-        <button className="btn" style={{"width":"35%"}} input="submit"><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        {
+          bodyParams&& <>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          </> 
+        }
+        <button className="btn" style={{"width":"35%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
         </div>
     </form>
   )
+}
+FormElement.propTypes ={
+  obj : PropTypes.object,
+  title : PropTypes.string,
+  description : PropTypes.string
 }

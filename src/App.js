@@ -1,26 +1,33 @@
 import './App.css';
 import About from './Components/About';
 import Sidebar from './Components/Sidebar';
+import ErrorBoundary from './Components/ErrorBoundary'
+import FormElement from './Components/FormElement';
+
 import {
   Routes,
   Route
 } from "react-router-dom";
-import FormElement from './Components/FormElement';
 
 let config = require("./config.json")
-
+/** TODO:
+sub routing
+fix Error Boundry
+**/
 function App() {
   return (
     <div className="main">
+     <ErrorBoundary>
       <Sidebar className="sidebarClass"/>
       <div className="container">
         <Routes>
-            <Route exact path="/" element={<FormElement obj = {config["config"]["apis"]["create"]} title = "Create Partner" description = "This Api helps you to create a partner in the system"/>}> 
+            <Route exact path="/" element={ <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/>}> 
             </Route>
             <Route exact path="/about" element={<About></About>}>
             </Route>
         </Routes>
       </div> 
+      </ErrorBoundary>
     </div>
   );
 }

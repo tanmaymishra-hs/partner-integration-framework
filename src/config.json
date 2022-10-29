@@ -104,6 +104,8 @@
         "path": "http://localhost:8080/v2/partner/create"
     },
     "listPartners": {
+        "pathParams": [],
+        "queryParams": [],
         "headers": [
             {"name": "Content-Type",
             "type":"header",
@@ -386,10 +388,12 @@
             {"name": "SubscriptionId", 
             "type": "pathParam",
             "requestContentType":"string"}
+
         ],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type", 
+
             "type": "header",
             "requestContentType":"string"},
             {"name": "X-HS-AccessKey", 

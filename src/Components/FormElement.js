@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Input from './Input'
 import PropTypes from 'prop-types'
-
+import {Box, Card, CardContent} from '@mui/material'
 
 export default function FormElement(props) {
 
@@ -34,6 +34,9 @@ export default function FormElement(props) {
   }
   const [values, setValues] = useState({})
   return (
+    <Box width='100%' className='boxClass transparent'>
+    <Card className='boxClass transparent'>
+    <CardContent className='boxClass'>
     <form>
         <h2>{title}</h2>
         <br/>
@@ -73,9 +76,12 @@ export default function FormElement(props) {
           <br/>
           </> 
         }
-        <button className="btn" style={{"width":"35%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        <button className="btn" style={{"width":"100%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
         </div>
     </form>
+    </CardContent>
+    </Card>
+    </Box>
   )
 }
 FormElement.propTypes ={

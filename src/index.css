@@ -7,6 +7,7 @@
 	--BODY2-MEDIUM-SIZE: 16px;
 	--ON-SURFACE-DEFAULT: #e1e6f0;
 	--RADIUS-03: 8px;
+	--RADIUS-04: 12px;
 	--BACKGROUND-BRAND-GRADIENT: linear-gradient(93.87deg, #095AE6 0%, #043EC7 100%);
 	--ON-BRAND_DEFAULT: #d1e8ff;
 	--BUTTON1-SEMIBOLD-SIZE: 18px;
@@ -258,4 +259,12 @@ h2{
 	display :block;
 	flex-basis: 0;
 	flex-grow: 1;
+}
+.boxClass{
+	border-radius: var(--RADIUS-04);
+	background: #16181F;
+	color: #ffffff;
+}
+.transparent{
+	background-color: transparent;
 }

@@ -248,7 +248,7 @@ input {
 	border: 1px solid;
 	border-radius: var(--RADIUS-03);
 	border-color: var(--BORDER-COLOR_L0);
-	background: transparent;
+	background: transparent !important;
 	margin-left: 25px;
 	height: 57.5px;
 	width: 274px;
@@ -257,6 +257,7 @@ input {
 	font-size: 16px;
 	font-family: 'Inter';
 }
+
 textarea{
 	background: transparent;
     color: white;
@@ -266,6 +267,7 @@ textarea{
 	margin-left: 25px;
 	font-size: 16px;
 	font-family: 'Inter';
+	padding: 20px;
 }
 h2{
 	font-family: 'Inter';
@@ -287,7 +289,8 @@ h2{
 	flex-grow: 1;
 }
 .boxClass{
-	/* margin: 50px; */
+	margin: 50px;
+	overflow-y: scroll;
 	border-radius: var(--RADIUS-04);
 	background: #202228;;
 	color: #ffffff;
@@ -301,5 +304,20 @@ h2{
 }
 .imglogo{
 	max-height: 150px;
+}
+pre{
+	line-height: 1.5;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: left;
+	font-family: 'Inter';
+	font-weight: 400;
+	padding: 20px;
+	border: 1px solid;
+	border-radius: var(--RADIUS-03);
+	border-color: var(--BORDER-COLOR_L0);
+	background: transparent !important;
+	/* overflow-x: scroll;
+	overflow-y: scroll; */
 }
 

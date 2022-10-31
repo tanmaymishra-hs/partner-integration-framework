@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function SidebarItem({item}){
     const [open, setOpen] = useState(false)
-
+    // const [isActive, setIsActive] = useState(false)
     
     if(item.children){
         return (

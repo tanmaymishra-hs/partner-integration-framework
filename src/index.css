@@ -64,6 +64,9 @@ body{
 	display: flex;
 	height: 100%;
 }
+#root{
+	height: 100%;
+}
 
 .container{
 	flex-grow: 1;
@@ -76,6 +79,7 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	margin-left: 20%;
 }
 .title{
 	font-size: 3em;
@@ -173,6 +177,9 @@ body{
 .sidebarClass{
 	/* background: rgba(255, 255, 255, 0.08); */
 	background: #16181F;
+	position: fixed;
+    width: 20%;
+    height: 100%;
 }
 .Title-1{
 	font-family: 'Inter';

@@ -254,6 +254,13 @@ input {
 	font-size: 16px;
 	font-family: 'Inter';
 }
+textarea{
+	background: transparent;
+    color: white;
+    border-radius: var(--RADIUS-03);
+    border: 1px solid;
+    border-color: var(--BORDER-COLOR_L0);
+}
 h2{
 	font-family: 'Inter';
 	font-style: normal;

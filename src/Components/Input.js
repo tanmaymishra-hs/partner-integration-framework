@@ -34,7 +34,7 @@ export default function Input(props) {
         </label>
         {typeof props.placeholder !== "object"? 
             <input className="row rowInput"  type="text" name={props.name} placeholder={placeholder} value={inputValue} onChange={handleOnChange}></input>:
-            <textarea className= "row" value={value} onChange={handleOnChange} rows={8} cols={40}>{value}</textarea>        
+            <textarea className= "row rowInput" value={value} onChange={handleOnChange} rows={8} cols={40}>{value}</textarea>        
             }
 
     </div>

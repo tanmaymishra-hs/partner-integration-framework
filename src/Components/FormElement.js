@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from './Input'
 import PropTypes from 'prop-types'
-
+import {Box, Card, CardContent} from '@mui/material'
 
 export default function FormElement(props) {
 
@@ -13,9 +13,13 @@ export default function FormElement(props) {
       requestContentType: requestContentType
     }
   }
+
   const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
-  
+
   return (
+    <Box width='100%' className='boxClass transparent'>
+    <Card className='boxClass transparent' style={{"background-color":"inherit"}}>
+    <CardContent className='boxClass' style={{"padding":"50px"}}>
     <form>
         <h2>{title}</h2>
         <br/>
@@ -55,10 +59,13 @@ export default function FormElement(props) {
           <br/>
           </> 
         }
-        <button className="btn" style={{"width":"35%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        <button className="btn" style={{"width":"100%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
         </div>
         {result && <div><pre>{JSON.stringify(result)}</pre></div>}
     </form>
+    </CardContent>
+    </Card>
+    </Box>
   )
 }
 FormElement.propTypes ={

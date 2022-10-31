@@ -7,6 +7,7 @@
 	--BODY2-MEDIUM-SIZE: 16px;
 	--ON-SURFACE-DEFAULT: #e1e6f0;
 	--RADIUS-03: 8px;
+	--RADIUS-04: 12px;
 	--BACKGROUND-BRAND-GRADIENT: linear-gradient(93.87deg, #095AE6 0%, #043EC7 100%);
 	--ON-BRAND_DEFAULT: #d1e8ff;
 	--BUTTON1-SEMIBOLD-SIZE: 18px;
@@ -52,7 +53,7 @@
 }
 
 html, body{
-	height: 100vh;
+	height: 100%;
 	background: #000000;
 }
 body{
@@ -61,9 +62,11 @@ body{
 
 .main{
 	display: flex;
-	height: 100vh;
+	height: 100%;
 }
-
+#root{
+	height: 100%;
+}
 
 .container{
 	flex-grow: 1;
@@ -76,6 +79,7 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	margin-left: 20%;
 }
 .title{
 	font-size: 3em;
@@ -122,10 +126,11 @@ body{
 }
 
 .sidebar-item{
-	padding: .75em 1em;
+	padding: 25px 0 0 30px;
 	display: block;
 	transition: background-color .15s;
 	border-radius: 5px;
+
 }
 .sidebar-item:hover{
 	cursor: pointer;
@@ -170,12 +175,16 @@ body{
 	width: 1.7em;
 }
 .sidebarClass{
-	background: rgba(255, 255, 255, 0.08);
+	/* background: rgba(255, 255, 255, 0.08); */
+	background: #16181F;
+	position: fixed;
+    width: 20%;
+    height: 100%;
 }
 .Title-1{
 	font-family: 'Inter';
 	font-style: normal;
-	font-weight: 600;
+	/* font-weight: 600; */
 	font-size: 24px;
 	line-height: 32px;
 	letter-spacing: -0.2px;
@@ -183,7 +192,7 @@ body{
 .Title-2{
 	font-family: 'Inter';
 	font-style: normal;
-	font-weight: 600;
+	/* font-weight: 600; */
 	font-size: 20px;
 	line-height: 28px;
 	/* identical to box height, or 140% */
@@ -257,5 +266,27 @@ h2{
 .row{
 	display :block;
 	flex-basis: 0;
+}
+.rowInput{
+	flex-grow: 2;
+}
+.rowLabel{
 	flex-grow: 1;
 }
+.boxClass{
+	/* margin: 50px; */
+	border-radius: var(--RADIUS-04);
+	background: #202228;;
+	color: #ffffff;
+}
+.transparent{
+	background-color: transparent;
+}
+.imageDiv{
+	padding: 30px;
+	text-align: center;
+}
+.imglogo{
+	max-height: 150px;
+}
+

@@ -60,7 +60,7 @@ export default function FormElement(props) {
         }
         <button className="btn" style={{"width":"100%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
         </div>
-        {result && <div><pre>{JSON.stringify(result)}</pre></div>}
+        {result && <pre>{JSON.stringify(result, undefined, 4)}</pre>}
     </form>
     </CardContent>
     </Card>

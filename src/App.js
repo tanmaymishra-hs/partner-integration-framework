@@ -21,7 +21,7 @@ function App() {
       <Sidebar className="sidebarClass"/>
       <div className="container">
         <Routes>
-            <Route exact path="/" element={ <><FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/><FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/><FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/></>}> 
+            <Route exact path="/" element={ <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id."/>}> 
             </Route>
             <Route exact path="/about" element={<About></About>}>
             </Route>

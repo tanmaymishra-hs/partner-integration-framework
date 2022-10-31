@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export default function Input(props) {
-    const {placeholder} = props.placeholder || {}
+    const {placeholder} = props || {}
     
     const [inputValue, setinputValue] = useState("");
     const [value, setValue] = useState(JSON.stringify(placeholder));
@@ -32,10 +32,9 @@ export default function Input(props) {
             <i className="Body-3-Regular" style={{'display':'block', 'color':'#808080'}}>{'('+props.type+')'}</i>
             <p className="Body-3-Medium" style={{'display':'block'}}>{props.requestContentType}</p>
         </label>
-        
         {typeof props.placeholder !== "object"? 
             <input className="row rowInput"  type="text" name={props.name} placeholder={placeholder} value={inputValue} onChange={handleOnChange}></input>:
-            <textarea className= "row" value={value} placeholder={JSON.stringify(placeholder)} onChange={handleOnChange} rows={8} cols={40}>{value}</textarea>        
+            <textarea className= "row" value={value} onChange={handleOnChange} rows={8} cols={40}>{value}</textarea>        
             }
 
     </div>

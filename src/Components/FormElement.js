@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Input from './Input'
 import PropTypes from 'prop-types'
 import {Box, Card, CardContent} from '@mui/material'
@@ -13,27 +13,9 @@ export default function FormElement(props) {
       requestContentType: requestContentType
     }
   }
-  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = ""} = props
-  const handleSubmit = async (event)=>{
-    event.preventDefault();
 
-    const headers = new Headers({
-      'Content-Type': values["Content-Type"],
-      'X-HS-AccessKey': values["X-HS-AccessKey"]
-    })
-    try{
-      await fetch(`http://localhost:8080/v2/partner/subscription/${values["SubscriptionId"]}`, {
-      method: 'GET',
-      headers,
-      mode: 'cors'
-         })
-         .then(results => console.log(results))}
+  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
 
-    catch(error){console.error(error)}
-
-  }
-  // const [isLoading, setIsLoading] = useState(false)
-  const [values, setValues] = useState({})
   return (
     <Box width='100%' className='boxClass transparent'>
     <Card className='boxClass transparent' style={{"background-color":"inherit"}}>
@@ -65,7 +47,7 @@ export default function FormElement(props) {
         ))}
         {bodyParams && bodyParams.map((element, idx) => (
           <>
-            <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element} type="body" requestContentType="JSON"/>
+            <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element.RequestBody} type={element.type} requestContentType={element.requestContentType}/>
             <br/>
             </>
         ))}
@@ -79,6 +61,7 @@ export default function FormElement(props) {
         }
         <button className="btn" style={{"width":"100%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
         </div>
+        {result && <div><pre>{JSON.stringify(result)}</pre></div>}
     </form>
     </CardContent>
     </Card>

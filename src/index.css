@@ -180,6 +180,9 @@ body{
 	position: fixed;
     width: 20%;
     height: 100%;
+	overflow-y: scroll;
+	z-index: 1;
+	padding-bottom: 5%;
 }
 .Title-1{
 	font-family: 'Inter';

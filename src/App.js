@@ -1,7 +1,7 @@
 import './App.css';
 import About from './Components/About';
 import Sidebar from './Components/Sidebar';
-import ErrorBoundary from './Components/ErrorBoundary'
+import ErrorBoundary from './Components/ErrorBoundary';
 import FormElement from './Components/FormElement';
 
 import {

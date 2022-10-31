@@ -32,11 +32,12 @@ export default function FormElement(props) {
     catch(error){console.error(error)}
 
   }
+  // const [isLoading, setIsLoading] = useState(false)
   const [values, setValues] = useState({})
   return (
     <Box width='100%' className='boxClass transparent'>
-    <Card className='boxClass transparent'>
-    <CardContent className='boxClass'>
+    <Card className='boxClass transparent' style={{"background-color":"inherit"}}>
+    <CardContent className='boxClass' style={{"padding":"50px"}}>
     <form>
         <h2>{title}</h2>
         <br/>

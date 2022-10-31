@@ -8,7 +8,7 @@ export default function SidebarItem({item}){
     if(item.children){
         return (
             <div className={open ? "sidebar-item open" : "sidebar-item"}>
-                <div className="sidebar-title Title-1" onClick={() => setOpen(!open)}>
+                <div className="sidebar-title Title-2" onClick={() => setOpen(!open)}>
                     <span>
                         { item.icon && <i className={item.icon}></i> }
                         {item.title}    

@@ -53,7 +53,7 @@
 }
 
 html, body{
-	height: 100vh;
+	height: 100%;
 	background: #000000;
 }
 body{
@@ -62,7 +62,7 @@ body{
 
 .main{
 	display: flex;
-	height: 100vh;
+	height: 100%;
 }
 
 .container{
@@ -267,6 +267,7 @@ h2{
 	flex-grow: 1;
 }
 .boxClass{
+	/* margin: 50px; */
 	border-radius: var(--RADIUS-04);
 	background: #202228;;
 	color: #ffffff;

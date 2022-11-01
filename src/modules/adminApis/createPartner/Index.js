@@ -6,7 +6,7 @@ let config = require("../../../config.json")
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const handleSubmit = async(event)=>{
+    const handleSubmit = async(event, setisLoading)=>{
         // console.log(values)
         event.preventDefault();
         
@@ -38,7 +38,7 @@ export function Index() {
             }
         }          
         catch(error){console.error(error)}
-    
+        setisLoading(false)
       }
   return (
     <>

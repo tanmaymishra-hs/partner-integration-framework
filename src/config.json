@@ -390,6 +390,7 @@
         ],
         "path": "/v2/partner/subscription/create-async/guest"
     },
+
     "updateUserDetailsSync": {
         "pathParams": [],
         "queryParams": [],

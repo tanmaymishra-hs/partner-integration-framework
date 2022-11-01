@@ -104,6 +104,7 @@ body{
 	background: var(--BACKGROUND-BRAND-GRADIENT);
     width: stretch;
 	transition-property: transform,background-color,-webkit-transform;
+    transition: padding-right .3s ease-out;
 }
 .ON_BRAND{
 	color: var(--ON-BRAND_DEFAULT);
@@ -320,4 +321,49 @@ pre{
 	/* overflow-x: scroll;
 	overflow-y: scroll; */
 }
+@keyframes spin { 
+    to {
+        transform: rotate(359deg);
+    }
+}
+@keyframes grow { 
+    to {
+        width: 14px;
+        height: 14px;
+        margin-top: -8px;
+        right: 13px;
+    }
+}
+.btn.loading {
+    background-color: #CCC;
+    padding-right: 40px;
+}
+.btn.loading:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    right: 6px;
+    top: 50%;
+    width: 0px;
+    height: 0px;
+    margin-top: -2px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-left-color: #FFF;
+    border-top-color: #FFF;
+    animation: spin .6s infinite linear, grow .3s forwards ease-out;
+}
+@keyframes spin { 
+    to {
+        transform: rotate(359deg);
+    }
+}
+@keyframes grow { 
+    to {
+        width: 14px;
+        height: 14px;
+        margin-top: -8px;
+        right: 13px;
+    }
+}
+
 

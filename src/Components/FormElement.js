@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from './Input'
 import PropTypes from 'prop-types'
 import {Box, Card, CardContent} from '@mui/material'
 
 export default function FormElement(props) {
-
+  const [isLoading, setisLoading] = useState(false)
   const mapInputValues = (element)=>{
     const {name, type, requestContentType} = element
     return{
@@ -13,6 +13,11 @@ export default function FormElement(props) {
       requestContentType: requestContentType
     }
   }
+  const handleSubmitLocal = (event)=>{
+    setisLoading(true)
+    handleSubmit(event, setisLoading)
+  }
+
   const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
   
   return (
@@ -58,7 +63,8 @@ export default function FormElement(props) {
           <br/>
           </> 
         }
-        <button className="btn" style={{"width":"100%"}} input="submit" onClick={handleSubmit}><span className='ON_BRAND BUTTON1_SEMIBOLD'>Execute</span></button>
+        {!isLoading && <button className="btn ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}
+        {isLoading && <button className="btn loading ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}
         </div>
         {result && <pre>{JSON.stringify(result, undefined, 4)}</pre>}
     </form>

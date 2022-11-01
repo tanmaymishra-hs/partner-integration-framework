@@ -5,7 +5,7 @@ let config = require("../../../../configPublic.json")
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const handleSubmit = async (event)=>{
+    const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
         
@@ -36,7 +36,7 @@ export function Index() {
               }
             }
         catch(error){console.error(error)}
-    
+        setisLoading(false)
       }
   return (
     <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>

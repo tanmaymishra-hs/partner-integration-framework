@@ -5,7 +5,7 @@ let config = require("../../../config.json")
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const handleSubmit = async (event)=>{
+    const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
         
@@ -37,7 +37,7 @@ export function Index() {
             }
     
         catch(error){console.error(error)}
-    
+        setisLoading(false)
       }
   return (
     <FormElement obj = {config["config"]["apis"]["listPartners"]} title = "List Partners" description = "This Api list all the partners with the given partner name." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>

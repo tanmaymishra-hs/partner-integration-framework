@@ -8,11 +8,11 @@ export function Index() {
     const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
-        
         const headers = new Headers({
           'X-HS-IAuth': values["X-HS-IAuth"],
           'Content-Type': values["Content-Type"]
         })
+
         try{
          const response = await fetch(`http://localhost:8080/v2/partner/list/${values["Partner Name"]}`, {
           method: 'GET',

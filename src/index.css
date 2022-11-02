@@ -318,8 +318,12 @@ pre{
 	border-radius: var(--RADIUS-03);
 	border-color: var(--BORDER-COLOR_L0);
 	background: transparent !important;
-	/* overflow-x: scroll;
-	overflow-y: scroll; */
+	/* overflow-x: scroll; */
+	/* overflow-y: scroll; */
+	white-space:pre-wrap;
+	/* max-width: inherit;
+    min-width: inherit;
+	 */
 }
 @keyframes spin { 
     to {

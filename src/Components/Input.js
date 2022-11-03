@@ -1,22 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function Input(props) {
     const {placeholder} = props || {}
-    
     const [inputValue, setinputValue] = useState("");
     const [value, setValue] = useState(JSON.stringify(placeholder));
+
+    // useEffect(()=>{
+    //     checkDefault()
+    // })
+    // const checkDefault = ()=>{
+        
+    //     const allCookies = document.cookie.split('; ').find((row) => row.startsWith('X-HS-IAuth'))?.split('=')[1];
+    //     console.log(allCookies)
+
+    // }
 
     const handleOnChange = (event)=>{
         if(props.inputType === "JSON")
         {   
-            setValue(event.target.value)
+            let tempValue = event.target.value
+            setValue(tempValue)
             props.setValues(prevState => ({
                 ...prevState,
                 [props.name]: value
             }));
         }
         else{
-            setinputValue(event.target.value)
+            let tempValue = event.target.value
+            setinputValue(tempValue)
             props.setValues(prevState => ({
                 ...prevState,
                 [props.name]: inputValue

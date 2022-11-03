@@ -22,10 +22,6 @@ Routes,
 } from "react-router-dom";
 import Home from './Components/Home';
 
-/** TODO:
-sub routing
-fix Error Boundry
-**/
 function App() {
   return (
     <div className="main">
@@ -49,7 +45,6 @@ function App() {
           <Route exact path ="/public/async/create-guest-subscription" element={<CreateGuestSubscriptionAsyncIndex/>}></Route>
           <Route exact path ="/public/async/create-subscription" element={<CreateSubscriptionAsyncIndex/>}></Route>
           <Route exact path ="/public/async/update-user-details" element={<UpdateUserDetailsAsyncIndex/>}></Route>
-          
         </Routes>
       </div> 
       </ErrorBoundary>

@@ -22,7 +22,7 @@ export default function FormElement(props) {
 
   return (
     <Box width='100%' className='boxClass transparent'>
-    <Card className='boxClass transparent' style={{"background-color":"inherit"}}>
+    <Card className='boxClass' style={{"backgroundColor":"inherit"}}>
     <CardContent className='boxClass' style={{"padding":"50px"}}>
     <form>
         <h2>{title}</h2>
@@ -64,7 +64,7 @@ export default function FormElement(props) {
           </> 
         }
         {!isLoading && <button className="btn ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}
-        {isLoading && <button className="btn loading ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}
+        {isLoading && <button disabled={true} className="btn loading ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}
         </div>
         {result && <pre>{JSON.stringify(result, 'undefined', 4)}</pre>}
         

@@ -20,12 +20,24 @@
                             "path" : "/public/sync/create-subscription"
                         },
                         {
+                            "title" : "Create Guest Subscription",
+                            "path" : "/public/sync/create-guest-subscription"
+                        },
+                        {
+                            "title" : "Get Subscription",
+                            "path" : "/public/sync/get-subscription"
+                        },
+                        {
+                            "title" : "Move Subscription",
+                            "path" : "/public/sync/move-subscription"
+                        },
+                        {
                             "title" : "Update Subscription",
                             "path" : "/public/sync/update-subscription"
                         },
                         {
-                            "title" : "Get Subscriptions",
-                            "path" : "/public/sync/get-subscription"
+                            "title" : "Update User Details",
+                            "path" : "/public/sync/update-user-details"
                         }
                     ]
                 },
@@ -33,20 +45,16 @@
                     "title": "Async APIs",
                     "children": [
                         {
-                            "title" : "Create",
-                            "path" : "/public/async/create"
+                            "title" : "Create Subscription",
+                            "path" : "/public/async/create-subscription"
+                        },
+                        {
+                            "title" : "Create Guest Subscription Async" ,
+                            "path" : "/public/async/create-guest-subscription"
                         },
                         {
                             "title" : "Update User Details",
-                            "path" : "/public/async/update"
-                        },
-                        {
-                            "title" : "Webhook",
-                            "path" : "/public/async/webhook"
-                        },
-                        {
-                            "title" : "Update Subscriptions",
-                            "path" : "/public/async/update-subscription"
+                            "path" : "/public/async/update-user-details"
                         }
                     ]
                 }
@@ -129,6 +137,41 @@
             }
         ],
         "path": "http://localhost:8080/v2/partner/subscription/create-async"
+    },
+    "createGuestSubscriptionSync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {}
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
     },
     "createGuestSubscriptionAsync": {
         "pathParams": [],
@@ -237,10 +280,12 @@
             {"name": "SubscriptionId", 
             "type": "pathParam",
             "requestContentType":"string"}
+
         ],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type", 
+
             "type": "header",
             "requestContentType":"string"},
             {"name": "X-HS-AccessKey", 

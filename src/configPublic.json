@@ -228,6 +228,85 @@
         ],
         "path": "/v2/partner/subscription/create-async/guest"
     },
+    "createGuestSubscriptionAsync": {
+>>>>>>> ab847dc (iauth integration and addition of logic)
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-capaign"
+                        }
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "/v2/partner/subscription/create/guest"
+    },
+    "createGuestSubscriptionAsync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-1-75116143-cbda-4354-a37a-2426079dd652",
+                    "subscriptionDetails": {
+                        "packId": "YES.Premium.IL.1Month",
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "/v2/partner/subscription/create-async/guest"
+    },
 
     "updateUserDetailsSync": {
         "pathParams": [],
@@ -309,6 +388,7 @@
         "queryParams": [],
         "headers": [
             {"name": "Content-Type", 
+
             "type": "header",
             "requestContentType":"string"},
             {"name": "X-HS-AccessKey", 

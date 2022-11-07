@@ -23,12 +23,12 @@ export function Index() {
              try{
               const value = await response.json()
               
-              if(response.status !== 201)
+              if(response.status !== 200)
               {
                 setResult("Error Case: An error occurred with message: {"+value["message"]+"} and with response code: {"+value["responseCode"]+"}")
               }
               else{
-                setResult(value)
+                setResult("The response is null")
               }
               }
               catch(error)

@@ -1,3 +1,4 @@
+import React from "react";
 import SidebarItem from "./SidebarItem"
 import sideBarItems from "../config.json"
 

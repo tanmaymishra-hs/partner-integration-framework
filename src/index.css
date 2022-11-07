@@ -104,6 +104,7 @@ body{
 	background: var(--BACKGROUND-BRAND-GRADIENT);
     width: stretch;
 	transition-property: transform,background-color,-webkit-transform;
+    transition: padding-right .3s ease-out;
 }
 .ON_BRAND{
 	color: var(--ON-BRAND_DEFAULT);
@@ -180,6 +181,9 @@ body{
 	position: fixed;
     width: 20%;
     height: 100%;
+	overflow-y: scroll;
+	z-index: 1;
+	padding-bottom: 5%;
 }
 .Title-1{
 	font-family: 'Inter';
@@ -245,7 +249,7 @@ input {
 	border: 1px solid;
 	border-radius: var(--RADIUS-03);
 	border-color: var(--BORDER-COLOR_L0);
-	background: transparent;
+	background: transparent !important;
 	margin-left: 25px;
 	height: 57.5px;
 	width: 274px;
@@ -253,6 +257,18 @@ input {
 	text-indent: 20px;
 	font-size: 16px;
 	font-family: 'Inter';
+}
+
+textarea{
+	background: transparent;
+    color: white;
+    border-radius: var(--RADIUS-03);
+    border: 1px solid;
+    border-color: var(--BORDER-COLOR_L0);
+	margin-left: 25px;
+	font-size: 16px;
+	font-family: 'Inter';
+	padding: 20px;
 }
 h2{
 	font-family: 'Inter';
@@ -274,7 +290,8 @@ h2{
 	flex-grow: 1;
 }
 .boxClass{
-	/* margin: 50px; */
+	margin: 50px;
+	overflow-y: scroll;
 	border-radius: var(--RADIUS-04);
 	background: #202228;;
 	color: #ffffff;
@@ -287,6 +304,73 @@ h2{
 	text-align: center;
 }
 .imglogo{
-	max-height: 150px;
+	max-height: 100px;
 }
+pre{
+	line-height: 1.5;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: left;
+	font-family: 'Inter';
+	font-weight: 400;
+	padding: 20px;
+	border: 1px solid;
+	border-radius: var(--RADIUS-03);
+	border-color: var(--BORDER-COLOR_L0);
+	background: transparent !important;
+	/* overflow-x: scroll; */
+	/* overflow-y: scroll; */
+	white-space:pre-wrap;
+	/* max-width: inherit;
+    min-width: inherit;
+	 */
+}
+@keyframes spin { 
+    to {
+        transform: rotate(359deg);
+    }
+}
+@keyframes grow { 
+    to {
+        width: 14px;
+        height: 14px;
+        margin-top: -8px;
+        right: 13px;
+    }
+}
+.btn.loading {
+    background-color: #CCC;
+    padding-right: 40px;
+}
+.btn.loading:hover{
+	cursor: default;
+}
+.btn.loading:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    right: 6px;
+    top: 50%;
+    width: 0px;
+    height: 0px;
+    margin-top: -2px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-left-color: #FFF;
+    border-top-color: #FFF;
+    animation: spin .6s infinite linear, grow .3s forwards ease-out;
+}
+@keyframes spin { 
+    to {
+        transform: rotate(359deg);
+    }
+}
+@keyframes grow { 
+    to {
+        width: 14px;
+        height: 14px;
+        margin-top: -8px;
+        right: 13px;
+    }
+}
+
 

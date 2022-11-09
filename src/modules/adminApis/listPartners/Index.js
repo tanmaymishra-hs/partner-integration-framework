@@ -14,7 +14,8 @@ export function Index() {
         })
 
         try{
-         const response = await fetch(`http://localhost:8080/v2/partner/list/${values["Partner Name"]}`, {
+          const urlPath = config['config']['apis']['listPartners']
+         const response = await fetch(`${urlPath}/${values["Partner Name"]}`, {
           method: 'GET',
           headers,
           mode: 'cors'

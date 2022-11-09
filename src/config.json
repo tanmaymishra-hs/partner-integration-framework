@@ -139,7 +139,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/create"
+        "path": "http://localhost:8080/v2/partner/list"
     },
     "getPartner": {
         "pathParams": [
@@ -227,7 +227,7 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/update"
+        "path": "http://localhost:8080/v2/partner/delete"
     },
 
     "createSubscriptionSync": {
@@ -370,7 +370,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
+        "path": "http://localhost:8080/v2/partner/subscription/create-async/guest"
     },
 
     "updateUserDetailsSync": {

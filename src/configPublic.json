@@ -206,7 +206,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
+        "path": "http://localhost:8080/v2/partner/subscription/create-async/guest"
     },
 
     "updateUserDetailsSync": {

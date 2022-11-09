@@ -14,7 +14,8 @@ export function Index() {
           'Content-Type': values["Content-Type"]
         })
         try{
-          const response = await fetch(`http://localhost:8080/v2/partner/update/${values["Partner Name"]}?country=${values["country"]}`, {
+          const urlPath = config['config']['apis']['updatePartner']
+          const response = await fetch(`${urlPath}/${values["Partner Name"]}?country=${values["country"]}`, {
           method: 'PATCH',
           body: values["RequestBody"],
           headers,

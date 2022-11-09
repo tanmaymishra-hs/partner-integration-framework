@@ -15,7 +15,9 @@ export function Index() {
           'Content-Type': values["Content-Type"]
         })
         try{
-          const response = await fetch(`http://localhost:8080/v2/partner/create`, {
+          const urlPath = config['config']['apis']['create']['path']
+          // console.log(url)
+          const response = await fetch(urlPath, {
           method: 'POST',
           headers,
           body: values["RequestBody"],

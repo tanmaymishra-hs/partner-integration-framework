@@ -14,6 +14,7 @@ export function Index() {
         //   'X-HS-AccessKey': values["X-HS-AccessKey"]
         // })
         // try{
+          // const urlPath = config['config']['apis']['createSubscriptionAsync']
         //  const response = await fetch(`http://localhost:8080/v2/partner/subscription/${values["SubscriptionId"]}`, {
         //   method: 'GET',
         //   headers,

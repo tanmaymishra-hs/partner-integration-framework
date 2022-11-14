@@ -5,13 +5,15 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../src/App";
-const PORT = 3005;
+
 const app = express();
+const PORT = 3005;
 
 app.use("^/$", (req, res) => {
+  // console.log(configurator.BASE_URL);
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
-      console.err(err);
+      console.error(err);
       return res.status(500).send("Some error happened");
     }
 

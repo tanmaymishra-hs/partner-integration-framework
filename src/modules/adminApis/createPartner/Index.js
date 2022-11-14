@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import { json } from 'react-router-dom';
 import FormElement from '../../../Components/FormElement';
 let config = require("../../../config.json")
+// const configurator = require('../../../configurator')
+
 
 export function Index() {
     const [values, setValues] = useState({})
@@ -15,8 +17,11 @@ export function Index() {
           'Content-Type': values["Content-Type"]
         })
         try{
-          const urlPath = config['config']['apis']['create']['path']
-          // console.log(url)
+          let urlPath = process.env.REACT_APP_BASE_URL;
+          // console.log(urlPath)
+          urlPath = urlPath+config['config']['apis']['create']['path']
+          // const urlPath = config['config']['apis']['create']['path']
+          console.log(urlPath)
           const response = await fetch(urlPath, {
           method: 'POST',
           headers,

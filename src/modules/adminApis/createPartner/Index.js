@@ -17,9 +17,11 @@ export function Index() {
           'Content-Type': values["Content-Type"]
         })
         try{
-          // const urlPath = configurator.BASE_URL;
-          const urlPath = config['config']['apis']['create']['path']
-          // console.log(url)
+          let urlPath = process.env.REACT_APP_BASE_URL;
+          // console.log(urlPath)
+          urlPath = urlPath+config['config']['apis']['create']['path']
+          // const urlPath = config['config']['apis']['create']['path']
+          console.log(urlPath)
           const response = await fetch(urlPath, {
           method: 'POST',
           headers,

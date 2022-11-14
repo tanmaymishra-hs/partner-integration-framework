@@ -7,8 +7,7 @@ import { StaticRouter } from "react-router-dom/server";
 import App from "../src/App";
 
 const app = express();
-const configurator = require('../configurator')
-const PORT = configurator.PORT;// || 3005;
+const PORT = 3005;
 
 app.use("^/$", (req, res) => {
   // console.log(configurator.BASE_URL);

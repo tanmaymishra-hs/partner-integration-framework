@@ -112,14 +112,14 @@
                 "country": "tn",
                 "startDateEnabled": "FALSE",
                 "expiryDateEnabled": "FALSE",
-                "webhookUrl": "http://localhost:8080/test-tn/webhook"
+                "webhookUrl": "/test-tn/webhook"
             },
             "type": "body",
             "requestContentType": "JSON"
         }
             
         ],
-        "path": "http://localhost:8080/v2/partner/create"
+        "path": "/v2/partner/create"
     },
     "listPartners": {
         "pathParams": [
@@ -139,7 +139,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/list"
+        "path": "/v2/partner/list"
     },
     "getPartner": {
         "pathParams": [
@@ -165,7 +165,7 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/"
+        "path": "/v2/partner/"
     },
     "updatePartner": {
         "pathParams": [
@@ -195,13 +195,13 @@
                 "RequestBody": {
                     "startDateEnabled": "FALSE",
                     "expiryDateEnabled": "FALSE",
-                    "webhookUrl": "https://test/webhook"
+                    "webhookUrl": "/webhook"
                 },
                 "type" : "body",
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/update"
+        "path": "/v2/partner/update"
     },
     "deletePartner": {
         "pathParams": [
@@ -227,7 +227,7 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/delete"
+        "path": "/v2/partner/delete"
     },
 
     "createSubscriptionSync": {

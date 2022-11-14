@@ -293,7 +293,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/subscription/"
+        "path": "/v2/partner/subscription/"
     },
     "updateSubscription": {
         "pathParams": [

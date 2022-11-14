@@ -15,8 +15,8 @@ export function Index() {
         })
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
-          urlPath += config['config']['apis']['updatePartner']
-          const response = await fetch(`${urlPath}/${values["Partner Name"]}?country=${values["country"]}`, {
+          urlPath += config['config']['apis']['updatePartner']['path']
+          const response = await fetch(`${urlPath}${values["Partner Name"]}?country=${values["country"]}`, {
           method: 'PATCH',
           body: values["RequestBody"],
           headers,

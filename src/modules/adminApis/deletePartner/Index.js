@@ -16,8 +16,8 @@ export function Index() {
         })
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
-          urlPath = urlPath+config['config']['apis']['deletePartner']
-          const response = await fetch(`${urlPath}/${values["Partner Name"]}?country=${values["country"]}`, {
+          urlPath = urlPath+config['config']['apis']['deletePartner']['path']
+          const response = await fetch(`${urlPath}${values["Partner Name"]}?country=${values["country"]}`, {
           method: 'DELETE',
           headers,
           mode: 'cors'

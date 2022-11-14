@@ -14,7 +14,10 @@ export function Index() {
           'X-HS-AccessKey': values["X-HS-AccessKey"]
         })
         try{
-         const response = await fetch(`http://localhost:8080/v2/partner/subscription/${values["SubscriptionId"]}`, {
+          let urlPath = process.env.REACT_APP_BASE_URL;
+          urlPath += config['config']['apis']['getSubscription']['path']
+          console.log(`${urlPath}${values["SubscriptionId"]}`)
+         const response = await fetch(`${urlPath}${values["SubscriptionId"]}`, {
           method: 'GET',
           headers,
           mode: 'cors'

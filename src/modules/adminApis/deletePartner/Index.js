@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import FormElement from '../../../Components/FormElement';
+import {getHeaders} from "../../../utils/headerGenerator"
 let config = require("../../../config.json")
 
 export function Index() {
@@ -10,10 +11,8 @@ export function Index() {
         console.log(values)
         event.preventDefault();
         
-        const headers = new Headers({
-          'X-HS-IAuth': values["X-HS-IAuth"],
-          'Content-Type': values["Content-Type"]
-        })
+        const headerVal = getHeaders(config['config']['apis']['deletePartner']['headers'], values);
+        const headers = new Headers(headerVal)
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath = urlPath+config['config']['apis']['deletePartner']['path']

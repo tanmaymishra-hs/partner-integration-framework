@@ -92,6 +92,8 @@ body{
 	color: rgb(224, 224, 224);
 }
 .btn{
+	margin: auto;
+	margin-top: 30px;
 	align-items: center;
 	border-width: 0;
     border-radius: var(--RADIUS-03);
@@ -239,7 +241,6 @@ input {
     word-spacing: normal;
     line-height: normal;
     text-transform: none;
-    text-indent: 0px;
     text-shadow: none;
     display: inline-block;
     text-align: start;
@@ -254,7 +255,7 @@ input {
 	height: 57.5px;
 	width: 274px;
 	color: #ffffff;
-	text-indent: 20px;
+	padding: 20px;
 	font-size: 16px;
 	font-family: 'Inter';
 }
@@ -371,6 +372,9 @@ pre{
         margin-top: -8px;
         right: 13px;
     }
+}
+.Input div{
+	margin: 20px;
 }
 
 

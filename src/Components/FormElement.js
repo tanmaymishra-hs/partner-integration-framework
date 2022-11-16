@@ -26,41 +26,41 @@ export default function FormElement(props) {
     <CardContent className='boxClass' style={{"padding":"50px"}}>
     <form>
         <h2>{title}</h2>
-        <br/>
+        {/* <br/> */}
         <h3 className='Body-1-Medium'>{description}</h3>
-        <br/>
-        <br/>
+        {/* <br/> */}
+        {/* <br/> */}
         <div className='Input'>
         {pathParams && pathParams.map((element, idx) => (
           <>
           <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
-            <br/>
+            {/* <br/> */}
           </>
         ))}
         {queryParams && queryParams.map((element, idx) => (
           <>
         <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
-            <br/>
+            {/* <br/> */}
           </>
         ))}
         {headers && headers.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
-            <br/>
+            {/* <br/> */}
             </>
         ))}
         {bodyParams && bodyParams.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {"RequestBody"} inputType = {"JSON"} placeholder = {element.RequestBody} type={element.type} requestContentType={element.requestContentType}/>
-            <br/>
+            {/* <br/> */}
             </>
         ))}
         {
           bodyParams&& <>
+          {/* <br/>
           <br/>
           <br/>
-          <br/>
-          <br/>
+          <br/> */}
           </> 
         }
         {!isLoading && <button className="btn ON_BRAND BUTTON1_SEMIBOLD" style={{"width":"100%"}} input="submit" onClick={handleSubmitLocal}>Execute</button>}

@@ -28,7 +28,7 @@ export function Index() {
                 setResult("Error Case: An error occurred with message: {"+value["message"]+"} and with response code: {"+value["responseCode"]+"}")
               }
               else{
-                setResult("The response is null")
+                setResult("The request was successful and the response received is NULL")
               }
               }
               catch(error)

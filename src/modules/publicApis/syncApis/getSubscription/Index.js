@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import FormElement from '../../../../Components/FormElement';
+import {getHeaders} from '../../../../utils/headerGenerator';
 let config = require("../../../../configPublic.json")
 
 export function Index() {
@@ -8,11 +9,8 @@ export function Index() {
     const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
-        
-        const headers = new Headers({
-          'Content-Type': values["Content-Type"],
-          'X-HS-AccessKey': values["X-HS-AccessKey"]
-        })
+        const headerVal = getHeaders(config['config']['apis']['create']['headers'], values);
+        const headers = new Headers(headerVal)
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['getSubscription']['path']

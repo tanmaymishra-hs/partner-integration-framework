@@ -5,14 +5,14 @@ import {Box, Card, CardContent} from '@mui/material'
 
 export default function FormElement(props) {
   const [isLoading, setisLoading] = useState(false)
-  const mapInputValues = (element)=>{
-    const {name, type, requestContentType} = element
-    return{
-      name: name,
-      type: type,
-      requestContentType: requestContentType
-    }
-  }
+  // const mapInputValues = (element)=>{
+  //   const {name, type, requestContentType} = element
+  //   return{
+  //     name: name,
+  //     type: type,
+  //     requestContentType: requestContentType
+  //   }
+  // }
   const handleSubmitLocal = (event)=>{
     setisLoading(true)
     handleSubmit(event, setisLoading)

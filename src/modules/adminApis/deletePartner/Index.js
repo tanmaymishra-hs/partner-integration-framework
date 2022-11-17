@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import FormElement from '../../../Components/FormElement';
+import {getHeaders} from '../../../utils/headerGenerator';
 let config = require("../../../config.json")
 
 export function Index() {
@@ -9,11 +10,11 @@ export function Index() {
     const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
-        
-        const headers = new Headers({
-          'X-HS-IAuth': values["X-HS-IAuth"],
-          'Content-Type': values["Content-Type"]
-        })
+        const headers = getHeaders(config['config']['apis']['deletePartner']['headers'], values)
+        // const headers = new Headers({
+        //   'X-HS-IAuth': values["X-HS-IAuth"],
+        //   'Content-Type': values["Content-Type"]
+        // })
         try{
           const response = await fetch(`http://localhost:8080/v2/partner/delete/${values["Partner Name"]}?country=${values["country"]}`, {
           method: 'DELETE',

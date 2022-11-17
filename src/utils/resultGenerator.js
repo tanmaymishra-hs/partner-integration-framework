@@ -1,4 +1,10 @@
-const getResult = async (response, setResult, successCode)=>{
+const getResult = async (setResult, successCode, url, reqMethod, headers, reqBody=null)=>{
+    const response = await fetch(url, {
+        method: reqMethod,
+        headers,
+        body: (reqBody?reqBody:null),
+        mode: 'cors'
+    })
     try{
         const value = await response.json()
         

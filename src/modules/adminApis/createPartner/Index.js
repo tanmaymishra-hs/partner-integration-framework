@@ -15,14 +15,7 @@ export function Index() {
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath = urlPath+config['config']['apis']['create']['path']
-          // console.log(urlPath)
-          const response = await fetch(urlPath, {
-          method: 'POST',
-          headers,
-          body: values["RequestBody"],
-          mode: 'cors'
-          })
-          getResult(response, setResult, 201);
+          getResult(setResult, 201, urlPath, 'POST', headers, values['RequestBody']);
         }          
         catch(error){console.error(error)}
         setisLoading(false)

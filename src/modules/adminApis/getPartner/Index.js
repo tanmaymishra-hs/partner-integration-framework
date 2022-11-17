@@ -15,13 +15,8 @@ export function Index() {
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['getPartner']['path']
-          const response = await fetch(`${urlPath}${values["Partner Name"]}?country=${values["country"]}`, {
-          method: 'GET',
-          headers,
-          mode: 'cors'
-             })
-             getResult(response, setResult, 200);
-            }
+          await getResult(setResult, 200, `${urlPath}${values["Partner Name"]}?country=${values["country"]}`, 'GET', headers);
+          }
         catch(error){console.error(error)}
         setisLoading(false)
       }

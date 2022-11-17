@@ -7,7 +7,6 @@ export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
     const handleSubmit = async (event, setisLoading)=>{
-        console.log(values)
         event.preventDefault();
         const headerVal = getHeaders(config['config']['apis']['create']['headers'], values);
         const headers = new Headers(headerVal)

@@ -10,7 +10,42 @@ const app = express();
 const PORT = 3005;
 
 app.use("^/$", (req, res) => {
-  // console.log(configurator.BASE_URL);
+  fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Some error happened");
+    }
+
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    );
+
+    return res.send(
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+    );
+  });
+});
+app.use("^/admin", (req, res) => {
+  fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Some error happened");
+    }
+
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    );
+
+    return res.send(
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+    );
+  });
+});
+app.use("^/public", (req, res) => {
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);

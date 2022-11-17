@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import FormElement from '../../../Components/FormElement';
 import {getHeaders} from "../../../utils/headerGenerator";
+import {getResult} from '../../../utils/resultGenerator'
 let config = require("../../../config.json")
 
 export function Index() {
@@ -19,29 +20,7 @@ export function Index() {
           headers,
           mode: 'cors'
              })
-             try{
-              const value = await response.json()
-              
-              if(response.status !== 200)
-              {
-                setResult("Error Case: An error occurred with message: {"+value["message"]+"} and with response code: {"+value["responseCode"]+"}")
-              }
-              else{
-                setResult(value)
-              }
-              }
-              catch(error)
-              {
-                if (response.status === 401) {
-                  const sign_in_url = response.headers.get('X-HS-IAuth-Redirect-SignIn');
-                  if (sign_in_url) {
-                    window.location.href = sign_in_url;
-                  }
-                }
-                else{
-                setResult("Error Case: Your API request did not. The status code received was "+response.status+" with message "+response.statusText)
-              }
-            }
+             getResult(response, setResult, 200);
             }
         catch(error){console.error(error)}
         setisLoading(false)

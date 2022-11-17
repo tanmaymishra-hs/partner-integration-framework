@@ -10,8 +10,7 @@ export function Index() {
     const handleSubmit = async (event, setisLoading)=>{
         console.log(values)
         event.preventDefault();
-        const headerVal = getHeaders(config['config']['apis']['getPartner']['headers'], values);
-        const headers = new Headers(headerVal)
+        const headers = getHeaders(config['config']['apis']['getPartner']['headers'], values);
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['getPartner']['path']

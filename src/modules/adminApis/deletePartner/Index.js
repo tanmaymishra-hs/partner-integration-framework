@@ -11,8 +11,7 @@ export function Index() {
         console.log(values)
         event.preventDefault();
         
-        const headerVal = getHeaders(config['config']['apis']['deletePartner']['headers'], values);
-        const headers = new Headers(headerVal)
+        const headers = getHeaders(config['config']['apis']['deletePartner']['headers'], values);
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath = urlPath+config['config']['apis']['deletePartner']['path']

@@ -8,8 +8,7 @@ export function Index() {
     const [result, setResult] = useState('')
     const handleSubmit = async (event, setisLoading)=>{
         event.preventDefault();
-        const headerVal = getHeaders(config['config']['apis']['create']['headers'], values);
-        const headers = new Headers(headerVal)
+        const headers = getHeaders(config['config']['apis']['create']['headers'], values);
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['getSubscription']['path']

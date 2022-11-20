@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import About from './Components/About';
 import Sidebar from './Components/Sidebar';
 import ErrorBoundary from './Components/ErrorBoundary'
@@ -22,12 +22,20 @@ Routes,
   Route
 } from "react-router-dom";
 import Home from './Components/Home';
+import {Singleton} from './utils/configSingleton';
 
 function App() {
+  const [configJson, setConfigJson] = useState('');
+  // useEffect(()=>{
+  //   let obj = Singleton.getInstance();
+  //   console.log(`inside App component obj is `);
+  //   console.log(obj);
+  //   setConfigJson(obj);
+  // }, [])s
   return (
     <div className="main">
      <ErrorBoundary>
-      <Sidebar className="sidebarClass"/>
+      <Sidebar config={configJson} className="sidebarClass"/>
       <div className="container">
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>

@@ -1,12 +1,13 @@
-class configSingleton{
-    constructor(){
-        if(!configSingleton._instance){
-            configSingleton._instance = this;
+export const Singleton = (function () {
+    let instance;
+
+    return {
+        getInstance: function (obj) {
+            if (!instance) {
+                instance = obj;
+            }
+
+            return instance;
         }
-        return configSingleton._instance;
-    }
-    static getInstance() {
-        return this._instance;
-    }
-}
-export default configSingleton;
+    };
+})();

@@ -1,0 +1,368 @@
+{
+    "config" : {
+    "sideBar":[
+        {
+            "title": "Home",
+            "path": "/"
+        },
+        {
+            "title": "About",
+            "path": "/about"
+        },
+        {
+            "title": "Public APIs",
+            "children": [
+                {
+                    "title" : "Sync APIs",
+                    "children": [
+                        {
+                            "title" : "Create Subscription",
+                            "path" : "/public/sync/create-subscription"
+                        },
+                        {
+                            "title" : "Create Guest Subscription",
+                            "path" : "/public/sync/create-guest-subscription"
+                        },
+                        {
+                            "title" : "Get Subscription",
+                            "path" : "/public/sync/get-subscription"
+                        },
+                        {
+                            "title" : "Move Subscription",
+                            "path" : "/public/sync/move-subscription"
+                        },
+                        {
+                            "title" : "Update Subscription",
+                            "path" : "/public/sync/update-subscription"
+                        },
+                        {
+                            "title" : "Update User Details",
+                            "path" : "/public/sync/update-user-details"
+                        }
+                    ]
+                },
+                {
+                    "title": "Async APIs",
+                    "children": [
+                        {
+                            "title" : "Create Subscription",
+                            "path" : "/public/async/create-subscription"
+                        },
+                        {
+                            "title" : "Create Guest Subscription Async" ,
+                            "path" : "/public/async/create-guest-subscription"
+                        },
+                        {
+                            "title" : "Update User Details",
+                            "path" : "/public/async/update-user-details"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Support",
+            "path": "/support"
+        }
+    ],
+    "apis":{
+    "createSubscriptionSync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],      
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {}
+                    },
+                    "userDetails": {
+                        "phoneNumber": "1848474124",
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/create"
+    },
+    "createSubscriptionAsync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-1-75116143-cbda-4354-a37a-2426079dd652",
+                    "subscriptionDetails": {
+                        "packId": "YES.Premium.IL.1Month",
+                        "partnerMeta": {}
+                    },
+                    "userDetails": {
+                        "phoneNumber": "1848474124",
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/create-async"
+    },
+    "createGuestSubscriptionSync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {}
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
+    },
+    "createGuestSubscriptionAsync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {}
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/create-async/guest"
+    },
+
+    "updateUserDetailsSync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+            "RequestBody": {
+                "partnerSubscriptionId": "777ed678-88ad-11ec-a8a3-0242ac120002",
+                "userDetails": {
+                    "phoneNumber": "1234567890",
+                    "email": {}
+                }
+            },
+            "type" : "body",
+            "requestContentType": "JSON"
+        }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/user/update"
+    },
+
+    "updateUserDetailsAsync": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+            "RequestBody": {
+                "partnerSubscriptionId": "test-mca-6191a6ea-f3d5-4e6c-9e36-eb4922a33600",
+                "userDetails": {
+                    "phoneNumber": "810828071",
+                    "email": {}
+                }
+            },
+            "type" : "body",
+            "requestContentType": "JSON"
+        }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/user/update-async"
+    },
+
+    "getSubscription": {
+        "pathParams": [
+            {"name": "SubscriptionId", 
+            "type": "pathParam",
+            "requestContentType":"string"}
+
+        ],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type", 
+
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-AccessKey", 
+            "type": "header",
+            "requestContentType":"string"}
+        ],
+        "bodyParams": [],
+        "path": "/v2/partner/subscription/"
+    },
+    "updateSubscription": {
+        "pathParams": [
+            {"name": "SampleRequest", 
+            "type": "pathParam",
+            "requestContentType":"string"},
+            {"name": "SubscriptionId", 
+            "type": "pathParam",
+            "requestContentType":"string"}
+        ],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-AccessKey", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-RequestID", 
+            "type": "header",
+            "requestContentType":"string"}
+        ],
+        "bodyParams": [
+            {
+               "RequestBody" :{
+                    "payload": {
+                        "reason": "Need to terminate"
+                    }
+                },
+                "type": "body",
+                "requestContentType": "JSON"
+            }
+            
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/update/"
+    },
+    "moveSubscription": {
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-Token",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "d5746f28-3552-478d-a883-75d8b5bd8287",
+                    "oldMobileNumber": "557582004",
+                    "newMobileNumber": "551056811"
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "http://localhost:8080/v2/partner/subscription/move"
+    }
+
+    
+
+}
+    }
+}

@@ -5,11 +5,13 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../src/App";
+import { getConfig } from "./fetchConfig";
 
 const app = express();
 const PORT = 3005;
 
 app.use("^/$", (req, res) => {
+  getConfig();
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);

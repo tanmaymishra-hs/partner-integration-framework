@@ -14,6 +14,7 @@ const getResult = async (setResult, successCode, url, reqMethod, headers, reqBod
         }
         else{
           setResult(value)
+          console.log('request was successfull')
         }
         }
         catch(error)

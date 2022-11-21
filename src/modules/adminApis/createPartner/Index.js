@@ -15,7 +15,7 @@ export function Index() {
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath = urlPath+config['config']['apis']['create']['path']
-          getResult(setResult, 201, urlPath, 'POST', headers, values['RequestBody']);
+          await getResult(setResult, 201, urlPath, 'POST', headers, values['RequestBody']);
         }          
         catch(error){console.error(error)}
         setisLoading(false)

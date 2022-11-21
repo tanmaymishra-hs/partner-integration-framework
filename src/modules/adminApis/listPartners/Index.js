@@ -15,12 +15,13 @@ export function Index() {
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['listPartners']['path']
-         const response = await fetch(`${urlPath}${values["Partner Name"]}`, {
-          method: 'GET',
-          headers,
-          mode: 'cors'
-             })
-             getResult(response, setResult, 200);
+          // console.log(`URL is ${urlPath}/${values["Partner Name"]}`)
+          await getResult(setResult, 200, `${urlPath}${values["Partner Name"]}`, 'GET', headers);
+        //  const response = await fetch(`${urlPath}/${values["Partner Name"]}`, {
+        //   method: 'GET',
+        //   headers,
+        //   mode: 'cors'
+        //      })
             }
     
         catch(error){console.error(error)}

@@ -14,14 +14,15 @@ export function Index() {
         try{
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['updatePartner']['path']
-          const response = await fetch(`${urlPath}${values["Partner Name"]}?country=${values["country"]}`, {
-          method: 'PATCH',
-          body: values["RequestBody"],
-          headers,
-          mode: 'cors'
-             })
-             getResult(response, setResult, 200);
-            }
+          console.log(`URL is ${urlPath}/${values["Partner Name"]}?country=${values["country"]}`)
+          // const response = await fetch(`${urlPath}/${values["Partner Name"]}?country=${values["country"]}`, {
+          // method: 'PATCH',
+          // body: values["RequestBody"],
+          // headers,
+          // mode: 'cors'
+          //    })
+          await getResult(setResult, 200, `${urlPath}/${values["Partner Name"]}?country=${values["country"]}`, 'PATCH', headers, values['RequestBody']);
+          }
     
         catch(error){console.error(error)}
         setisLoading(false)

@@ -6,17 +6,17 @@ import { Singleton } from "../utils/configSingleton";
 export default function Sidebar(){
     const [config, setConfig] = useState(sideBarItems["config"]["sideBar"]);
     let items;
-    useEffect(()=>{
-      const f = async ()=>{
-        let response = await fetch(process.env.REACT_APP_CONFIGURL, {method:'GET'});
-        let responseJSON = await response.json();
-        items = responseJSON['config']['sideBar'];
-        Singleton.getInstance(responseJSON); 
-        setConfig(responseJSON['config']['sideBar']);
-      }
-      f();
+    // useEffect(()=>{
+    //   const f = async ()=>{
+    //     let response = await fetch(process.env.REACT_APP_CONFIGURL, {method:'GET'});
+    //     let responseJSON = await response.json();
+    //     items = responseJSON['config']['sideBar'];
+    //     Singleton.getInstance(responseJSON); 
+    //     setConfig(responseJSON['config']['sideBar']);
+    //   }
+    //   f();
       
-    }, [])
+    // }, [])
     
     items = config;
     console.log(items)

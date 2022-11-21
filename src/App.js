@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="main">
      <ErrorBoundary>
-      <Sidebar config={configJson} className="sidebarClass"/>
+      <Sidebar className="sidebarClass"/>
       <div className="container">
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>

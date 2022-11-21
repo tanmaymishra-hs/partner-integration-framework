@@ -18,8 +18,8 @@ export default function FormElement(props) {
     handleSubmit(event, setisLoading)
   }
 
-  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
-  
+  const {obj:{pathParams, queryParams, headers, variables, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
+
   return (
     <Box width='100%' className='boxClass transparent'>
     <Card className='boxClass' style={{"backgroundColor":"inherit"}}>
@@ -44,6 +44,12 @@ export default function FormElement(props) {
           </>
         ))}
         {headers && headers.map((element, idx) => (
+          <>
+            <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
+            <br/>
+            </>
+        ))}
+        {variables && variables.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             <br/>

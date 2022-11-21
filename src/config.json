@@ -64,6 +64,10 @@
                         {
                             "title" : "Update User Details",
                             "path" : "/public/sync/update-user-details"
+                        },
+                        {
+                            "title" : "Update Subscription Details",
+                            "path" : "/public/sync/update-subscription-details"
                         }
                     ]
                 },
@@ -112,14 +116,14 @@
                 "country": "tn",
                 "startDateEnabled": "FALSE",
                 "expiryDateEnabled": "FALSE",
-                "webhookUrl": "http://localhost:8080/test-tn/webhook"
+                "webhookUrl": "/test-tn/webhook"
             },
             "type": "body",
             "requestContentType": "JSON"
         }
             
         ],
-        "path": "http://localhost:8080/v2/partner/create"
+        "path": "/v2/partner/create"
     },
     "listPartners": {
         "pathParams": [
@@ -139,7 +143,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/create"
+        "path": "/v2/partner/list"
     },
     "getPartner": {
         "pathParams": [
@@ -165,7 +169,7 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/"
+        "path": "/v2/partner"
     },
     "updatePartner": {
         "pathParams": [
@@ -193,15 +197,13 @@
         "bodyParams": [
             {
                 "RequestBody": {
-                    "startDateEnabled": "FALSE",
-                    "expiryDateEnabled": "FALSE",
-                    "webhookUrl": "https://test/webhook"
+                    "expiryDateEnabled": "TRUE"
                 },
                 "type" : "body",
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/update"
+        "path": "/v2/partner/update"
     },
     "deletePartner": {
         "pathParams": [
@@ -227,7 +229,7 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/update"
+        "path": "/v2/partner/delete"
     },
 
     "createSubscriptionSync": {
@@ -243,14 +245,21 @@
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],      
         "bodyParams": [
             {
                 "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "partnerSubscriptionId": "test-001-e046df3f-cc46-4f58-98b9-a1be57193f0b",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "phoneNumber": "1848474124",
@@ -261,7 +270,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create"
+        "path": "/v2/partner/subscription/create"
     },
     "createSubscriptionAsync": {
         "pathParams": [],
@@ -270,9 +279,6 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
@@ -280,13 +286,20 @@
             "requestContentType" : "string",
             "type": "header"}
         ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
         "bodyParams": [
             {
                 "RequestBody": {
-                    "partnerSubscriptionId": "test-1-75116143-cbda-4354-a37a-2426079dd652",
+                    "partnerSubscriptionId": "test-002-e046df3f-cc46-4f58-98b9-a1be57193f0b",
                     "subscriptionDetails": {
                         "packId": "YES.Premium.IL.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign":"some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "phoneNumber": "1848474124",
@@ -297,7 +310,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create-async"
+        "path": "/v2/partner/subscription/create-async"
     },
     "createGuestSubscriptionSync": {
         "pathParams": [],
@@ -306,9 +319,6 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
@@ -316,13 +326,20 @@
             "requestContentType" : "string",
             "type": "header"}
         ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
         "bodyParams": [
             {
                 "RequestBody": {
                     "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-capaign"
+                        }
                     },
                     "userDetails": {
                         "email": {}
@@ -332,7 +349,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
+        "path": "/v2/partner/subscription/create/guest"
     },
     "createGuestSubscriptionAsync": {
         "pathParams": [],
@@ -341,9 +358,6 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
@@ -351,13 +365,20 @@
             "requestContentType" : "string",
             "type": "header"}
         ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
         "bodyParams": [
             {
                 "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "partnerSubscriptionId": "test-1-75116143-cbda-4354-a37a-2426079dd652",
                     "subscriptionDetails": {
-                        "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "packId": "YES.Premium.IL.1Month",
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "email": {}
@@ -367,7 +388,7 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
+        "path": "/v2/partner/subscription/create-async/guest"
     },
 
     "updateUserDetailsSync": {
@@ -377,15 +398,17 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -400,7 +423,7 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/user/update"
+        "path": "/v2/partner/subscription/user/update"
     },
 
     "updateUserDetailsAsync": {
@@ -410,15 +433,17 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -433,7 +458,7 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/user/update-async"
+        "path": "/v2/partner/subscription/user/update-async"
     },
 
     "getSubscription": {
@@ -454,11 +479,11 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "http://localhost:8080/v2/partner/subscription/"
+        "path": "/v2/partner/subscription/"
     },
     "updateSubscription": {
         "pathParams": [
-            {"name": "SampleRequest", 
+            {"name": "Event", 
             "type": "pathParam",
             "requestContentType":"string"},
             {"name": "SubscriptionId", 
@@ -480,16 +505,16 @@
         "bodyParams": [
             {
                "RequestBody" :{
-                    "payload": {
-                        "reason": "Need to terminate"
-                    }
-                },
+                "payload": {
+                    "reason": "Need to terminate"
+                }
+            },
                 "type": "body",
                 "requestContentType": "JSON"
             }
             
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/update/"
+        "path": "/v2/partner/subscription/update/"
     },
     "moveSubscription": {
         "pathParams": [],
@@ -498,15 +523,17 @@
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -519,7 +546,37 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/move"
+        "path": "/v2/partner/subscription/move"
+    },
+    "updateSubscriptionDetails": {
+        "pathParams": [
+            {"name": "PartnerSubscriptionId", 
+            "type": "pathParam",
+            "requestContentType":"string"}
+        ],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-AccessKey", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-RequestID", 
+            "type": "header",
+            "requestContentType":"string"}
+        ],
+        "bodyParams": [
+            {
+               "RequestBody" :{
+                "subscriptionDetails": "{\"partner_promotion_campaign\":\"ALC.TV.30_OFF\"}"
+            },
+                "type": "body",
+                "requestContentType": "JSON"
+            }
+            
+        ],
+        "path": "/v2/partner/subscription/update-details/"
     }
 
     

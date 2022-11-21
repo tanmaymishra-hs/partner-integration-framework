@@ -1,8 +1,7 @@
-
 var CryptoJS = require("crypto-js");
 
-export const createSubsSync = (data, secretKey)=>{
-// console.log(request.data);
+export const createGuestSubsAsync = (data, secretKey)=>{
+    //console.log(request.data);
 var request_p = data;
 request_p = request_p.replace(/\s+/g, '') //HimynameisFlavio
 // request_p.replace(//g, '') //HimynameisFlavio
@@ -125,5 +124,5 @@ token = toHexString(byteArray)
 // alert(byteArrayToString(byteArray));
 console.log("token from Crypto : " + token);
 console.log("function : " + toHexString(byteArray));
-return token 
+return token
 }

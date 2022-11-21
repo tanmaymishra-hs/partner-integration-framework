@@ -1,6 +1,6 @@
 var CryptoJS = require("crypto-js");
 
-export const updateUserDetailsSync = (data)=>{
+export const updateUserDetailsSync = (data, secretKey)=>{
 //console.log(data);
 var request_p = data;
 request_p = request_p.replace(/\s+/g, '') //HimynameisFlavio
@@ -10,7 +10,7 @@ var sortAlphabets = function (text) {
   return text.split('').sort().join('');
 };
 //var secret = postman.getGlobalVariable('airtet_secret_qa'); 
-request_p = request_p + "5b070a6400ed4e038e8dc8ed996ff96e";
+request_p = request_p + secretKey;
 console.log(request_p);
 request_p = sortAlphabets(request_p)
 console.log(request_p);
@@ -33,13 +33,13 @@ var finalOutput = "";
 var firstSight = true;
 var one = false;
 var two = false;
-for (i = 0; i < request_p.length; i++) {
-  if (request_p[i] == ',') {
+for (let i = 0; i < request_p.length; i++) {
+  if (request_p[i] === ',') {
     if (one === false) {
       one = true;
       finalOutput = finalOutput + request_p[i];
     } else if (two === false) {
-      if (finalOutput.charAt(finalOutput.length - 1) == ' ') {//|| finalOutput.charAt(finalOutput.length-1) == ','
+      if (finalOutput.charAt(finalOutput.length - 1) === ' ') {//|| finalOutput.charAt(finalOutput.length-1) == ','
         finalOutput = finalOutput.substring(0, finalOutput.length - 1);
         finalOutput = finalOutput + request_p[i];
         one = false;
@@ -108,7 +108,7 @@ function wordToByteArray(wordArray) {
             byteArray.push((word >> 8 * j) & 0xFF);
         }
     }
-    return byteArray;
+    return byteArray; 
 }
 function byteArrayToString(byteArray) {
     var str = "", i;

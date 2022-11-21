@@ -1,6 +1,6 @@
 var CryptoJS = require("crypto-js");
 
-export const createGuestSubsSync = (data)=>{
+export const createGuestSubsSync = (data, secretKey)=>{
     //console.log(request.data);
 var request_p = data;
 request_p = request_p.replace(/\s+/g, '') //HimynameisFlavio
@@ -10,7 +10,7 @@ var sortAlphabets = function (text) {
   return text.split('').sort().join('');
 };
 //var secret = postman.getGlobalVariable('airtet_secret_qa'); 
-request_p = request_p + "bfbce1f51d5d4dcb8427ed7d5399de59";
+request_p = request_p + secretKey;
 console.log(request_p);
 request_p = sortAlphabets(request_p)
 console.log(request_p);

@@ -89,7 +89,9 @@
                     "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "phoneNumber": "1848474124",
@@ -125,7 +127,9 @@
                     "partnerSubscriptionId": "test-1-75116143-cbda-4354-a37a-2426079dd652",
                     "subscriptionDetails": {
                         "packId": "YES.Premium.IL.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "phoneNumber": "1848474124",
@@ -161,7 +165,9 @@
                     "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "email": {}
@@ -196,7 +202,9 @@
                     "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {}
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-campaign"
+                        }
                     },
                     "userDetails": {
                         "email": {}

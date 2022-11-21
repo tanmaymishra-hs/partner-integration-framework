@@ -16,6 +16,7 @@ import {Index as UpdateUserDetailsSyncIndex} from './modules/publicApis/syncApis
 import {Index as CreateGuestSubscriptionAsyncIndex} from './modules/publicApis/asyncApis/createGuestSubscriptionAsync/Index'
 import {Index as CreateSubscriptionAsyncIndex} from './modules/publicApis/asyncApis/createSubscriptionAsync/Index'
 import {Index as UpdateUserDetailsAsyncIndex} from './modules/publicApis/asyncApis/updateUserDetailsAsync/Index'
+import {Index as UpdateSubscriptionDetails} from './modules/publicApis/syncApis/updateSubscriptionDetails/Index'
 import {  
 Routes,
   Route
@@ -41,6 +42,7 @@ function App() {
           <Route exact path ="/public/sync/create-guest-subscription" element={<CreateGuestSubscriptionSyncIndex/>}></Route>
           <Route exact path ="/public/sync/move-subscription" element={<MoveSubscriptionIndex/>}></Route>
           <Route exact path ="/public/sync/update-subscription" element={<UpdateSubscriptionSyncIndex/>}></Route>
+          <Route exact path ="/public/sync/update-subscription-details" element={<UpdateSubscriptionDetails/>}></Route>
           <Route exact path ="/public/sync/update-user-details" element={<UpdateUserDetailsSyncIndex/>}></Route>
           <Route exact path ="/public/async/create-guest-subscription" element={<CreateGuestSubscriptionAsyncIndex/>}></Route>
           <Route exact path ="/public/async/create-subscription" element={<CreateSubscriptionAsyncIndex/>}></Route>

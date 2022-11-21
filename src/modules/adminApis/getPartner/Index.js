@@ -1,22 +1,24 @@
 import React, {useState} from 'react'
 import FormElement from '../../../Components/FormElement';
-import {getHeaders} from '../../../utils/headerGenerator';
+import {replaceURL} from '../../../utils/ReplaceUrl'
 let config = require("../../../config.json")
 
+const host = "http://localhost:8080"
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
 
     const handleSubmit = async (event, setisLoading)=>{
-        console.log(values)
         event.preventDefault();
-        const headers = getHeaders(config['config']['apis']['getPartner']['headers'], values)
-        // const headers = new Headers({
-        //   'X-HS-IAuth': values["X-HS-IAuth"],
-        //   'Content-Type': values["Content-Type"]
-        // })
+        
+        const headers = new Headers({
+          'X-HS-IAuth': values["X-HS-IAuth"],
+          'Content-Type': values["Content-Type"]
+        })
+        let url = replaceURL(config["config"]["apis"]["getPartner"]["path"], config["config"]["apis"]["getPartner"]["pathParams"],  config["config"]["apis"]["getPartner"]["queryParams"], values)
+        console.log(url)
         try{
-          const response = await fetch(`http://localhost:8080/v2/partner/${values["Partner Name"]}?country=${values["country"]}`, {
+          const response = await fetch(host+url, {
           method: 'GET',
           headers,
           mode: 'cors'

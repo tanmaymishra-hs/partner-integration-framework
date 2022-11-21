@@ -16,7 +16,7 @@ export function Index() {
           let urlPath = process.env.REACT_APP_BASE_URL;
           urlPath += config['config']['apis']['listPartners']['path']
           // console.log(`URL is ${urlPath}/${values["Partner Name"]}`)
-          await getResult(setResult, 200, `${urlPath}${values["Partner Name"]}`, 'GET', headers);
+          await getResult(setResult, 200, `${urlPath}/${values["Partner Name"]}`, 'GET', headers);
         //  const response = await fetch(`${urlPath}/${values["Partner Name"]}`, {
         //   method: 'GET',
         //   headers,

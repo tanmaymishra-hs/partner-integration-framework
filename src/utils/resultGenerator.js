@@ -13,7 +13,7 @@ const getResult = async (setResult, successCode, url, reqMethod, headers, reqBod
           setResult("Error Case: An error occurred with message: {"+value["message"]+"} and with response code: {"+value["responseCode"]+"}")
         }
         else{
-          setResult(value)
+          setResult(value?value:'request was successfull with null response')
           console.log('request was successfull')
         }
         }

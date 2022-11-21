@@ -22,7 +22,7 @@ export function Index() {
       try{
         // TO REMOVE
         console.log("The value for the X-HS-Token is : - "+partner_global_token)
-       const response = await fetch(`https://partner-orchestrator-pp.pp.hotstar-labs.com/v2/partner/subscription/create-async`, {
+       const response = await fetch(`https://partner-orchestrator-qa.pp.hotstar-labs.com/v2/partner/subscription/create-async/guest`, {
         method: 'POST',
         headers,
         body: values["RequestBody"],

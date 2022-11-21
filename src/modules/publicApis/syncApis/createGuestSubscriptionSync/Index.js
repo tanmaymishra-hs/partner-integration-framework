@@ -6,11 +6,12 @@ let config = require("../../../../configPublic.json")
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const [partner_global_token, set_partner_global_token] = useState('')
-    const handleSubmit = async (event, setisLoading)=>{
-      var token = createGuestSubsSync(values["RequestBody"])
-      set_partner_global_token(token)
 
+    const handleSubmit = async (event, setisLoading)=>{
+      
+      let secretKey = values["X-HS-SecretKey"]
+      let partner_global_token = createGuestSubsSync(values["RequestBody"], secretKey)
+  
       // CreateSubsSync(values["RequestBody"], partner_global_token, set_partner_global_token)
       event.preventDefault();
       
@@ -42,15 +43,7 @@ export function Index() {
           }
           catch(error)
           { 
-            if (response.status === 401) {
-              const sign_in_url = response.headers.get('X-HS-IAuth-Redirect-SignIn');
-              if (sign_in_url) {
-                window.location.href = sign_in_url;
-              }
-            }
-            else{
               setResult("Error Case: Your API request did not. The status code received was "+response.status+" with message "+response.statusText)
-            }
             
           }
       }          

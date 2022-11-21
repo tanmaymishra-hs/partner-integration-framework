@@ -6,14 +6,12 @@ let config = require("../../../../config.json")
 export function Index() { 
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const [partner_global_token, set_partner_global_token] = useState('')
 
     const handleSubmit = async (event, setisLoading)=>{
-      var token = createSubsSync(values["RequestBody"])
-      set_partner_global_token(token)
 
+      let secretKey = values["X-HS-SecretKey"]
+      let partner_global_token = createSubsSync(values["RequestBody"], secretKey)
 
-        // CreateSubsSync(values["RequestBody"], partner_global_token, set_partner_global_token)
         event.preventDefault();
         
         const headers = new Headers({

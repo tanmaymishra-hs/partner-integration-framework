@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 export default function Input(props) {
     const {placeholder} = props || {}
     const [inputValue, setinputValue] = useState("");
-    const [value, setValue] = useState(JSON.stringify(placeholder));
+    const [value, setValue] = useState(JSON.stringify(placeholder, null, 2));
 
     // useEffect(()=>{
     //     checkDefault()

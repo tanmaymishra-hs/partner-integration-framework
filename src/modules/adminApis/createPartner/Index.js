@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
 import { json } from 'react-router-dom';
 import FormElement from '../../../Components/FormElement';
-import { getHeaders } from '../../../utils/headerGenerator';
-let config = require("../../../config.json")
+import {getHeaders} from '../../../utils/headerGenerator';
+import {getResult} from '../../../utils/ResultGenerator';
+
+let config = require("../../../config.json");
 
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
     const handleSubmit = async(event, setisLoading)=>{
+      console.log(config.config.apis.create.headers)
         event.preventDefault();
         const headers = getHeaders(config['config']['apis']['create']['headers'], values)
         // const headers = new Headers({

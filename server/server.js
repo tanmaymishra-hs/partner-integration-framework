@@ -5,10 +5,19 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../src/App";
-import { getConfig } from "./fetchConfig";
+import { getConfig, fetchConfig } from "./fetchConfig";
+import { Singleton } from "../src/utils/configSingleton";
 
 const app = express();
 const PORT = 3005;
+app.get('/getconfig', (req, res) => {
+  getConfig();
+  // res.json(Singleton.getInstance());
+  res.json(Singleton.getInstance());
+})
+// app.get('/fetchconfig', (req, res) => {
+//   res.json(fetchConfig());
+// })
 
 app.use("^/$", (req, res) => {
   getConfig();

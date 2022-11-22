@@ -25,13 +25,21 @@ import Home from './Components/Home';
 import {Singleton} from './utils/configSingleton';
 
 function App() {
-  const [configJson, setConfigJson] = useState('');
-  // useEffect(()=>{
-  //   let obj = Singleton.getInstance();
-  //   console.log(`inside App component obj is `);
-  //   console.log(obj);
-  //   setConfigJson(obj);
-  // }, [])s
+  const [configJson, setConfigJson] = useState(Singleton.getInstance());
+  useEffect(()=>{
+    const f = async ()=>{
+      const response = await fetch('/getconfig', {method:'GET'});
+      console.log('response in App.js is ')
+      console.log(response)
+      const rjs = await response.json();
+      console.log('response json is ');
+      console.log(rjs)
+      setConfigJson(rjs)
+    }
+    f();
+  }, [])
+  console.log('configJson is')
+  console.log(configJson)
   return (
     <div className="main">
      <ErrorBoundary>

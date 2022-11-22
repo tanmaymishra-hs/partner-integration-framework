@@ -19,6 +19,8 @@ export default function Sidebar(props){
     // }, [])
     
     // items = Singleton.getInstance()['config']['sideBar'];
+    console.log('Singleton obj is')
+    console.log(Singleton.getInstance())
     console.log('inside sideBar items is')
     console.log(items)
     return (

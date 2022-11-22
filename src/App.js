@@ -34,6 +34,7 @@ function App() {
       const rjs = await response.json();
       console.log('response json is ');
       console.log(rjs)
+      Singleton.getInstance(rjs)
       setConfigJson(rjs)
     }
     f();

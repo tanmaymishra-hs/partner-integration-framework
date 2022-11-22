@@ -12,7 +12,7 @@ export function Index(props) {
         event.preventDefault();
         const headers = getHeaders(config.headers, values)
         try{
-            let baseUrl = replaceURL(config.path, config.pathParams, config.queryParams)
+            let baseUrl = replaceURL(config.path, config.pathParams, config.queryParams, values)
             // doubt here about how to grab the host and how it would work
             let host = 'http://localhost:8080'
             let url = host+baseUrl

@@ -14,7 +14,6 @@ const getAdminResult = async (setResult, successCode, url, method, headers, reqB
         }
         else{
           setResult(value?value:'request was successfull with null response')
-          console.log('request was successfull')
         }
         }
         catch(error)

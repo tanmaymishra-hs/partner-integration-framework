@@ -1,7 +1,10 @@
 import './App.css';
+import './config.json'
+import './configPublic.json'
 import About from './Components/About';
 import Sidebar from './Components/Sidebar';
 import ErrorBoundary from './Components/ErrorBoundary'
+import {Index} from './modules/Index'
 import {Index as GetPartnerIndex} from './modules/adminApis/getPartner/Index'
 import {Index as ListPartnerIndex} from './modules/adminApis/listPartners/Index'
 import {Index as DeletePartnerIndex} from './modules/adminApis/deletePartner/Index'
@@ -23,6 +26,8 @@ Routes,
 } from "react-router-dom";
 import Home from './Components/Home';
 
+let config = require("./config.json");
+
 function App() {
   return (
     <div className="main">
@@ -32,11 +37,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>
           <Route exact path="/about" element={<About/>}></Route>
-          <Route exact path="/admin/create-partner" element={<CreatePartnerIndex/>}></Route>
-          <Route exact path="/admin/delete-partner" element={<DeletePartnerIndex/>}></Route>
-          <Route exact path="/admin/get-partner" element={<GetPartnerIndex/>}></Route>
-          <Route exact path="/admin/list-partner" element={<ListPartnerIndex/>}></Route>
-          <Route exact path="/admin/update-partner" element={<UpdatePartnerIndex/>}></Route>
+          <Route exact path="/admin/create-partner" element={<Index config = {config["config"]["apis"]["create"]}/>}></Route>
+          <Route exact path="/admin/delete-partner" element={<Index config = {config["config"]["apis"]["deletePartner"]}/>}></Route>
+          <Route exact path="/admin/get-partner" element={<Index config = {config["config"]["apis"]["getPartner"]}/>}></Route>
+          <Route exact path="/admin/list-partner" element={<Index config = {config["config"]["apis"]["listPartners"]}/>}></Route>
+          <Route exact path="/admin/update-partner" element={<Index config = {config["config"]["apis"]["updatePartner"]}/>}></Route>
           <Route exact path ="/public/sync/get-subscription" element={<GetSubscriptionIndex/>}></Route>
           <Route exact path ="/public/sync/create-subscription" element={<CreateSubscriptionSyncIndex/>}></Route>
           <Route exact path ="/public/sync/create-guest-subscription" element={<CreateGuestSubscriptionSyncIndex/>}></Route>

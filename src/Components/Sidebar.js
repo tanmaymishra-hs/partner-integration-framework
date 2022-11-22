@@ -3,9 +3,9 @@ import SidebarItem from "./SidebarItem"
 import sideBarItems from "../config.json"
 import { Singleton } from "../utils/configSingleton";
 
-export default function Sidebar(){
+export default function Sidebar(props){
     // const [config, setConfig] = useState(sideBarItems["config"]["sideBar"]);
-    let items;
+    let items = props.config;
     // useEffect(()=>{
     //   const f = async ()=>{
     //     let response = await fetch(process.env.REACT_APP_CONFIGURL, {method:'GET'});
@@ -18,7 +18,7 @@ export default function Sidebar(){
       
     // }, [])
     
-    items = Singleton.getInstance()['config']['sideBar'];
+    // items = Singleton.getInstance()['config']['sideBar'];
     console.log('inside sideBar items is')
     console.log(items)
     return (
@@ -26,7 +26,7 @@ export default function Sidebar(){
         <div className="imageDiv">
         <img className="imglogo" src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_256/v1656431456/web-images/logo-d-plus.svg" alt="Disney+Hotstar"></img>
         </div>
-          { items.map((item, index) => <SidebarItem key={index} item={item} />) }
+          { items?items.map((item, index) => <SidebarItem key={index} item={item} />):'' }
         </div>
     )
 }

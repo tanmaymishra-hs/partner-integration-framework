@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/admin/get-partner" element={<Index config = {config["config"]["apis"]["getPartner"]}/>}></Route>
           <Route exact path="/admin/list-partner" element={<Index config = {config["config"]["apis"]["listPartners"]}/>}></Route>
           <Route exact path="/admin/update-partner" element={<Index config = {config["config"]["apis"]["updatePartner"]}/>}></Route>
-          <Route exact path ="/public/sync/get-subscription" element={<GetSubscriptionIndex/>}></Route>
+          <Route exact path ="/public/sync/get-subscription" element={<Index config = {config["config"]["apis"]["getSubscription"]}/>}></Route>
           <Route exact path ="/public/sync/create-subscription" element={<CreateSubscriptionSyncIndex/>}></Route>
           <Route exact path ="/public/sync/create-guest-subscription" element={<CreateGuestSubscriptionSyncIndex/>}></Route>
           <Route exact path ="/public/sync/move-subscription" element={<MoveSubscriptionIndex/>}></Route>

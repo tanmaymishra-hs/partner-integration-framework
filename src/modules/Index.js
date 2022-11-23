@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import FormElement from '../Components/FormElement';
 import {getHeaders} from '../utils/headerGenerator';
 import { replaceURL } from '../utils/ReplaceUrl';
-import {getAdminResult} from '../utils/AdminResultGenerator'
+import {getAdminResult} from '../utils/ResultGenerator'
+import { getPublicResult } from '../utils/ResultGenerator';
 
 export function Index(props) {
     const [values, setValues] = useState({})
@@ -16,7 +17,7 @@ export function Index(props) {
             // doubt here about how to grab the host and how it would work
             let host = 'http://localhost:8080'
             let url = host+baseUrl
-            await getAdminResult(setResult, config.successCode, url, config.method, headers, config.bodyParams.length>0?values['RequestBody']:null)
+            await config.category==="admin"?getAdminResult(setResult, config.successCode, url, config.method, headers, config.bodyParams.length>0?values['RequestBody']:null):getPublicResult(setResult, config.successCode, url, config.method, headers, config.bodyParams.length>0?values['RequestBody']:null)
         }          
         catch(error){console.error(error)}
         setisLoading(false)

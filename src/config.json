@@ -538,7 +538,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/subscription/"
+        "path": "/v2/partner/subscription"
     },
     "updateSubscription": {
         "title": "Update Subscription",

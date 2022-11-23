@@ -25,13 +25,9 @@ import Home from './Components/Home';
 import {Singleton} from './utils/configSingleton';
 
 function App() {
-  const [configJson, setConfigJson] = useState('');
   // useEffect(()=>{
-  //   let obj = Singleton.getInstance();
-  //   console.log(`inside App component obj is `);
-  //   console.log(obj);
-  //   setConfigJson(obj);
-  // }, [])s
+  //   Singleton.getInstance(window.__APP_CONFIG__);
+  // }, [])
   return (
     <div className="main">
      <ErrorBoundary>

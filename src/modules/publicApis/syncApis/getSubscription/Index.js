@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import FormElement from '../../../../Components/FormElement';
 import {getHeaders} from '../../../../utils/headerGenerator';
-let config = require("../../../../configPublic.json")
+// let config = require("../../../../configPublic.json")
 
 export function Index() {
+    const [config, setConfig] = useState('')
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
+    useEffect(()=>{
+      setConfig(window.__APP_CONFIG__)
+    }, [])
     const handleSubmit = async (event, setisLoading)=>{
         event.preventDefault();
         const headers = getHeaders(config['config']['apis']['getSubscription']['headers'], values);
@@ -38,6 +42,6 @@ export function Index() {
         setisLoading(false)
       }
   return (
-    <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
+    <FormElement obj = {config && config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
   )
 }

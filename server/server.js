@@ -11,7 +11,9 @@ const app = express();
 const PORT = 3005;
 
 app.use("^/$", (req, res) => {
-  getConfig();
+  let config = getConfig();
+  config = JSON.stringify(config)
+  
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -25,11 +27,18 @@ app.use("^/$", (req, res) => {
     );
 
     return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>
+      <script>
+        (()=>{
+          window.__APP_CONFIG__=${config}
+        })()
+      </script>`)
     );
   });
 });
 app.use("^/admin", (req, res) => {
+  let config = getConfig();
+  config = JSON.stringify(config)
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -43,11 +52,18 @@ app.use("^/admin", (req, res) => {
     );
 
     return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>
+      <script>
+        (()=>{
+          window.__APP_CONFIG__=${config}
+        })()
+      </script>`)
     );
   });
 });
 app.use("^/public", (req, res) => {
+  let config = getConfig();
+  config = JSON.stringify(config)
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -61,7 +77,12 @@ app.use("^/public", (req, res) => {
     );
 
     return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>
+      <script>
+        (()=>{
+          window.__APP_CONFIG__=${config}
+        })()
+      </script>`)
     );
   });
 });

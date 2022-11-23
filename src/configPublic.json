@@ -47,7 +47,6 @@
                         {
                             "title" : "Create Subscription",
                             "path" : "/public/async/create-subscription"
-<<<<<<< HEAD
                         },
                         {
                             "title" : "Create Guest Subscription Async" ,
@@ -60,16 +59,6 @@
                         {
                             "title" : "Update Subscription Details",
                             "path" : "/public/sync/update-subscription-details"
-=======
-                        },
-                        {
-                            "title" : "Create Guest Subscription Async" ,
-                            "path" : "/public/async/create-guest-subscription"
-                        },
-                        {
-                            "title" : "Update User Details",
-                            "path" : "/public/async/update-user-details"
->>>>>>> SSR2
                         }
                     ]
                 }
@@ -147,11 +136,7 @@
                     "subscriptionDetails": {
                         "packId": "YES.Premium.IL.1Month",
                         "partnerMeta": {
-<<<<<<< HEAD
                             "partner_promotion_campaign":"some-test-campaign"
-=======
-                            "partner_promotion_campaign": "some-test-campaign"
->>>>>>> SSR2
                         }
                     },
                     "userDetails": {
@@ -191,11 +176,7 @@
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
                         "partnerMeta": {
-<<<<<<< HEAD
                             "partner_promotion_campaign": "some-test-capaign"
-=======
-                            "partner_promotion_campaign": "some-test-campaign"
->>>>>>> SSR2
                         }
                     },
                     "userDetails": {
@@ -209,47 +190,6 @@
         "path": "/v2/partner/subscription/create/guest"
     },
     "createGuestSubscriptionAsync": {
-<<<<<<< HEAD
-=======
-        "pathParams": [],
-        "queryParams": [],
-        "headers": [
-            {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-AccessKey",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-RequestID",
-            "requestContentType" : "string",
-            "type": "header"}
-        ],
-        "bodyParams": [
-            {
-                "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
-                    "subscriptionDetails": {
-                        "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {
-                            "partner_promotion_campaign": "some-test-campaign"
-                        }
-                    },
-                    "userDetails": {
-                        "email": {}
-                    }
-                },
-                "type" : "body",
-                "requestContentType": "JSON"
-            }
-        ],
-        "path": "http://localhost:8080/v2/partner/subscription/create-async/guest"
-    },
-
-    "updateUserDetailsSync": {
->>>>>>> SSR2
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -376,11 +316,7 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-<<<<<<< HEAD
         "path": "/v2/partner/subscription"
-=======
-        "path": "/v2/partner/subscription/"
->>>>>>> SSR2
     },
     "updateSubscription": {
         "pathParams": [

@@ -57,6 +57,6 @@ export function Index() {
       setisLoading(false)
     }
   return (
-    <FormElement obj = {config["config"]["apis"]["updateUserDetailsSync"]} title = "Update user details" description = "This Api helps you update user details sync ." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
+    <FormElement obj = {config["config"]["apis"]["updateUserDetailsSync"]} title = "Update user details" description = "This Api helps you update user details synchronously" handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
   )
 }

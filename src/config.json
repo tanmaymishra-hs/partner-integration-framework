@@ -97,6 +97,11 @@
     ],
     "apis":{
     "create": {
+        "title": "Create Partner",
+        "description": "This Api helps you create a partner",
+        "method": "POST",
+        "successCode": "201",
+        "category": "admin",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -126,6 +131,11 @@
         "path": "/v2/partner/create"
     },
     "listPartners": {
+        "title": "List Partner",
+        "description": "This Api list all the partners with the given partner name.",
+        "method": "GET",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -146,6 +156,11 @@
         "path": "/v2/partner/list"
     },
     "getPartner": {
+        "title": "Get Partner",
+        "description": "This Api helps you to get the information related to a partner.",
+        "method": "GET",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -172,6 +187,11 @@
         "path": "/v2/partner"
     },
     "updatePartner": {
+        "title": "Update Partner",
+        "description": "This Api helps you update a partner",
+        "method": "PATCH",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -206,6 +226,11 @@
         "path": "/v2/partner/update"
     },
     "deletePartner": {
+        "title": "Delete Partner",
+        "description": "This Api helps you delete a partner from database.",
+        "method": "DELETE",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -233,6 +258,11 @@
     },
 
     "createSubscriptionSync": {
+        "title": "Create Subscription Sync",
+        "description": "This Api helps you create Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -273,6 +303,11 @@
         "path": "/v2/partner/subscription/create"
     },
     "createSubscriptionAsync": {
+        "title": "Create Subscription Async",
+        "description": "This Api helps you create Subscription asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -313,6 +348,11 @@
         "path": "/v2/partner/subscription/create-async"
     },
     "createGuestSubscriptionSync": {
+        "title": "Create Guest Subscription Sync",
+        "description": "This Api helps you create guest Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -352,6 +392,11 @@
         "path": "/v2/partner/subscription/create/guest"
     },
     "createGuestSubscriptionAsync": {
+        "title": "Create Guest Subscription Async",
+        "description": "This Api helps you create guest Subscription asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -391,6 +436,11 @@
         "path": "/v2/partner/subscription/create-async/guest"
     },
     "updateUserDetailsSync": {
+        "title": "Update User Details Sync",
+        "description": "This Api helps you update user details synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -426,6 +476,11 @@
     },
 
     "updateUserDetailsAsync": {
+        "title": "Update User Details Async",
+        "description": "This Api helps you update user details asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -461,6 +516,11 @@
     },
 
     "getSubscription": {
+        "title": "Get Subscription",
+        "description": "This Api helps you to get the subscription",
+        "method": "GET",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
             {"name": "SubscriptionId", 
             "type": "pathParam",
@@ -481,6 +541,11 @@
         "path": "/v2/partner/subscription/"
     },
     "updateSubscription": {
+        "title": "Update Subscription",
+        "description": "This Api helps you update a Subscription",
+        "method": "POST",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
             {"name": "Event", 
             "type": "pathParam",
@@ -516,6 +581,11 @@
         "path": "/v2/partner/subscription/update/"
     },
     "moveSubscription": {
+        "title": "Move Subscription Sync",
+        "description": "This Api helps you move Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -548,6 +618,11 @@
         "path": "/v2/partner/subscription/move"
     },
     "updateSubscriptionDetails": {
+        "title": "Update Subscription Details",
+        "description": "This Api helps you update Subscription details",
+        "method": "PATCH",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
             {"name": "PartnerSubscriptionId", 
             "type": "pathParam",

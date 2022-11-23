@@ -391,7 +391,7 @@
                 }
                 
             ],
-            "path": "/v2/partner/subscription/update/"
+            "path": "/v2/partner/subscription/update"
         },
         "moveSubscription": {
             "title": "Move Subscription Sync",
@@ -463,7 +463,7 @@
                 }
                 
             ],
-            "path": "/v2/partner/subscription/update-details/"
+            "path": "/v2/partner/subscription/update-details"
         }
     
 

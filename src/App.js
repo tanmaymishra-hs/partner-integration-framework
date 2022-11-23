@@ -5,21 +5,13 @@ import About from './Components/About';
 import Sidebar from './Components/Sidebar';
 import ErrorBoundary from './Components/ErrorBoundary'
 import {Index} from './modules/Index'
-import {Index as GetPartnerIndex} from './modules/adminApis/getPartner/Index'
-import {Index as ListPartnerIndex} from './modules/adminApis/listPartners/Index'
-import {Index as DeletePartnerIndex} from './modules/adminApis/deletePartner/Index'
-import {Index as CreatePartnerIndex} from './modules/adminApis/createPartner/Index';
-import {Index as UpdatePartnerIndex} from './modules/adminApis/updatePartner/Index'
-import {Index as GetSubscriptionIndex} from './modules/publicApis/syncApis/getSubscription/Index'
 import {Index as CreateGuestSubscriptionSyncIndex} from './modules/publicApis/syncApis/createGuestSubscriptionSync/Index'
 import {Index as CreateSubscriptionSyncIndex} from './modules/publicApis/syncApis/createSubscriptionSync/Index'
 import {Index as MoveSubscriptionIndex} from './modules/publicApis/syncApis/moveSubscription/Index'
-import {Index as UpdateSubscriptionSyncIndex} from './modules/publicApis/syncApis/updateSubscription/Index'
 import {Index as UpdateUserDetailsSyncIndex} from './modules/publicApis/syncApis/updateUserDetailsSync/Index'
 import {Index as CreateGuestSubscriptionAsyncIndex} from './modules/publicApis/asyncApis/createGuestSubscriptionAsync/Index'
 import {Index as CreateSubscriptionAsyncIndex} from './modules/publicApis/asyncApis/createSubscriptionAsync/Index'
 import {Index as UpdateUserDetailsAsyncIndex} from './modules/publicApis/asyncApis/updateUserDetailsAsync/Index'
-import {Index as UpdateSubscriptionDetails} from './modules/publicApis/syncApis/updateSubscriptionDetails/Index'
 import {  
 Routes,
   Route

@@ -39,6 +39,6 @@ export function Index() {
         setisLoading(false)
       }
   return (
-    <FormElement obj = {config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
+    <FormElement obj = {config && config["config"]["apis"]["getSubscription"]} title = "Get Subscription ID" description = "This Api helps you to get the subscription id." handleSubmit={handleSubmit} values={values} setValues={setValues} result={result}/>
   )
 }

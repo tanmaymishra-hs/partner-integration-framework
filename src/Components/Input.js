@@ -15,6 +15,16 @@ export default function Input(props) {
 
     // }
 
+    // useEffect(()=>{
+    //     checkDefault()
+    // })
+    // const checkDefault = ()=>{
+        
+    //     const allCookies = document.cookie.split('; ').find((row) => row.startsWith('X-HS-IAuth'))?.split('=')[1];
+    //     console.log(allCookies)
+
+    // }
+
     const handleOnChange = (event)=>{
         if(props.inputType === "JSON")
         {   

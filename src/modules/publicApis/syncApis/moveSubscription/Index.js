@@ -6,20 +6,16 @@ let config = require("../../../../configPublic.json")
 export function Index() {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const [partner_global_token, set_partner_global_token] = useState('')
 
     const handleSubmit = async (event, setisLoading)=>{
-      var token = moveSubscription(values["RequestBody"])
-      set_partner_global_token(token)
-
-        // CreateSubsSync(values["RequestBody"], partner_global_token, set_partner_global_token)
+      var partner_global_token = moveSubscription(values["RequestBody"])
         event.preventDefault();
         
         const headers = new Headers({
           'Content-Type': values["Content-Type"],
           'X-HS-AccessKey': values["X-HS-AccessKey"],
           'X-HS-Token': partner_global_token,
-          'X-HS-RequestID': values["X-HS-RequestID"]
+          'X-Request-Id': values["X-Request-Id"]
         })
         try{
           // TO REMOVE

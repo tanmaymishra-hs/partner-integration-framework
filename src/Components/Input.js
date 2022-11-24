@@ -1,9 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function Input(props) {
     const {placeholder} = props || {}
     const [inputValue, setinputValue] = useState("");
     const [value, setValue] = useState(JSON.stringify(placeholder, null, 2));
+
+    // useEffect(() => {
+    //     if(props.name === "RequestBody"){
+    //             props.values[props.name] = JSON.stringify(placeholder)
+    //     }
+
+    // });
+    
 
     const handleOnChange = async(event)=>{
         if(props.inputType === "JSON")

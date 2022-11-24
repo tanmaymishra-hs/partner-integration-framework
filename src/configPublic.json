@@ -408,7 +408,7 @@
                 {"name": "X-HS-AccessKey",
                 "requestContentType" : "string",
                 "type": "header"},
-                {"name": "X-HS-RequestID",
+                {"name": "X-Request-Id",
                 "requestContentType" : "string",
                 "type": "header"}
             ],

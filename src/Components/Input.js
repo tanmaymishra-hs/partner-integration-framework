@@ -32,7 +32,7 @@ export default function Input(props) {
             setValue(tempValue)
             props.setValues(prevState => ({
                 ...prevState,
-                [props.name]: value
+                [props.name]: tempValue
             }));
         }
         else{
@@ -40,7 +40,7 @@ export default function Input(props) {
             setinputValue(tempValue)
             props.setValues(prevState => ({
                 ...prevState,
-                [props.name]: inputValue
+                [props.name]: tempValue
             }));
         }
         

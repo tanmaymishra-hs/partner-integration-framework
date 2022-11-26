@@ -39,7 +39,6 @@ export default function FormElement(props) {
         {variables && variables.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
-            <br/>
             </>
         ))}
         {bodyParams && bodyParams.map((element, idx) => (

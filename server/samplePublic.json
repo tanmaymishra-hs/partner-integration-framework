@@ -76,6 +76,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/sync/create-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -121,6 +122,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/async/create-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -166,6 +168,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/sync/create-guest-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -210,6 +213,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/sync/create-guest-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -254,6 +258,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/sync/update-user-details",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -294,6 +299,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/async/update-user-details",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -334,6 +340,7 @@
             "method": "GET",
             "successCode": "200",
             "category": "public",
+            "route": "/public/sync/get-subscription",
             "pathParams": [
                 {"name": "SubscriptionId", 
                 "type": "pathParam",
@@ -359,6 +366,7 @@
             "method": "POST",
             "successCode": "200",
             "category": "public",
+            "route": "/public/sync/update-subscription",
             "pathParams": [
                 {"name": "Event", 
                 "type": "pathParam",
@@ -399,6 +407,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
+            "route": "/public/sync/move-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [
@@ -436,6 +445,7 @@
             "method": "PATCH",
             "successCode": "200",
             "category": "public",
+            "route": "/public/sync/update-subscription-details",
             "pathParams": [
                 {"name": "PartnerSubscriptionId", 
                 "type": "pathParam",

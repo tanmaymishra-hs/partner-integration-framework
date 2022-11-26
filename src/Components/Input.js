@@ -5,27 +5,15 @@ export default function Input(props) {
     const [inputValue, setinputValue] = useState("");
     const [value, setValue] = useState(JSON.stringify(placeholder, null, 2));
 
-    // useEffect(()=>{
-    //     checkDefault()
-    // })
-    // const checkDefault = ()=>{
-        
-    //     const allCookies = document.cookie.split('; ').find((row) => row.startsWith('X-HS-IAuth'))?.split('=')[1];
-    //     console.log(allCookies)
+    // useEffect(() => {
+    //     if(props.name === "RequestBody"){
+    //             props.values[props.name] = JSON.stringify(placeholder)
+    //     }
 
-    // }
+    // });
+    
 
-    // useEffect(()=>{
-    //     checkDefault()
-    // })
-    // const checkDefault = ()=>{
-        
-    //     const allCookies = document.cookie.split('; ').find((row) => row.startsWith('X-HS-IAuth'))?.split('=')[1];
-    //     console.log(allCookies)
-
-    // }
-
-    const handleOnChange = (event)=>{
+    const handleOnChange = async(event)=>{
         if(props.inputType === "JSON")
         {   
             let tempValue = event.target.value

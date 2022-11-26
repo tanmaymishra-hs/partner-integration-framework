@@ -64,6 +64,10 @@
                         {
                             "title" : "Update User Details",
                             "path" : "/public/sync/update-user-details"
+                        },
+                        {
+                            "title" : "Update Subscription Details",
+                            "path" : "/public/sync/update-subscription-details"
                         }
                     ]
                 },
@@ -93,6 +97,11 @@
     ],
     "apis":{
     "create": {
+        "title": "Create Partner",
+        "description": "This Api helps you create a partner",
+        "method": "POST",
+        "successCode": "201",
+        "category": "admin",
         "pathParams": [],
         "queryParams": [],
         "headers": [
@@ -122,6 +131,11 @@
         "path": "/v2/partner/create"
     },
     "listPartners": {
+        "title": "List Partner",
+        "description": "This Api list all the partners with the given partner name.",
+        "method": "GET",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -142,6 +156,11 @@
         "path": "/v2/partner/list"
     },
     "getPartner": {
+        "title": "Get Partner",
+        "description": "This Api helps you to get the information related to a partner.",
+        "method": "GET",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -165,9 +184,14 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/"
+        "path": "/v2/partner"
     },
     "updatePartner": {
+        "title": "Update Partner",
+        "description": "This Api helps you update a partner",
+        "method": "PATCH",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -193,9 +217,7 @@
         "bodyParams": [
             {
                 "RequestBody": {
-                    "startDateEnabled": "FALSE",
-                    "expiryDateEnabled": "FALSE",
-                    "webhookUrl": "/webhook"
+                    "expiryDateEnabled": "TRUE"
                 },
                 "type" : "body",
                 "requestContentType": "JSON"
@@ -204,6 +226,11 @@
         "path": "/v2/partner/update"
     },
     "deletePartner": {
+        "title": "Delete Partner",
+        "description": "This Api helps you delete a partner from database.",
+        "method": "DELETE",
+        "successCode": "200",
+        "category": "admin",
         "pathParams": [
             {
                 "name" : "Partner Name",
@@ -231,13 +258,15 @@
     },
 
     "createSubscriptionSync": {
+        "title": "Create Subscription Sync",
+        "description": "This Api helps you create Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-AccessKey",
@@ -246,11 +275,16 @@
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],      
         "bodyParams": [
             {
                 "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "partnerSubscriptionId": "test-001-e046df3f-cc46-4f58-98b9-a1be57193f0b",
                     "subscriptionDetails": {
                         "packId": "TM.Premium.MY.1Month",
                         "partnerMeta": {
@@ -266,16 +300,18 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create"
+        "path": "/v2/partner/subscription/create"
     },
     "createSubscriptionAsync": {
+        "title": "Create Subscription Async",
+        "description": "This Api helps you create Subscription asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-AccessKey",
@@ -284,6 +320,100 @@
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-002-e046df3f-cc46-4f58-98b9-a1be57193f0b",
+                    "subscriptionDetails": {
+                        "packId": "YES.Premium.IL.1Month",
+                        "partnerMeta": {
+                            "partner_promotion_campaign":"some-test-campaign"
+                        }
+                    },
+                    "userDetails": {
+                        "phoneNumber": "1848474124",
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "/v2/partner/subscription/create-async"
+    },
+    "createGuestSubscriptionSync": {
+        "title": "Create Guest Subscription Sync",
+        "description": "This Api helps you create guest Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
+        ],
+        "bodyParams": [
+            {
+                "RequestBody": {
+                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
+                    "subscriptionDetails": {
+                        "packId": "TM.Premium.MY.1Month",
+                        "partnerMeta": {
+                            "partner_promotion_campaign": "some-test-capaign"
+                        }
+                    },
+                    "userDetails": {
+                        "email": {}
+                    }
+                },
+                "type" : "body",
+                "requestContentType": "JSON"
+            }
+        ],
+        "path": "/v2/partner/subscription/create/guest"
+    },
+    "createGuestSubscriptionAsync": {
+        "title": "Create Guest Subscription Async",
+        "description": "This Api helps you create guest Subscription asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
+        "pathParams": [],
+        "queryParams": [],
+        "headers": [
+            {"name": "Content-Type",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-AccessKey",
+            "requestContentType" : "string",
+            "type": "header"},
+            {"name": "X-HS-RequestID",
+            "requestContentType" : "string",
+            "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -296,7 +426,6 @@
                         }
                     },
                     "userDetails": {
-                        "phoneNumber": "1848474124",
                         "email": {}
                     }
                 },
@@ -304,91 +433,18 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/create-async"
+        "path": "/v2/partner/subscription/create-async/guest"
     },
-    "createGuestSubscriptionSync": {
-        "pathParams": [],
-        "queryParams": [],
-        "headers": [
-            {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-AccessKey",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-RequestID",
-            "requestContentType" : "string",
-            "type": "header"}
-        ],
-        "bodyParams": [
-            {
-                "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
-                    "subscriptionDetails": {
-                        "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {
-                            "partner_promotion_campaign": "some-test-campaign"
-                        }
-                    },
-                    "userDetails": {
-                        "email": {}
-                    }
-                },
-                "type" : "body",
-                "requestContentType": "JSON"
-            }
-        ],
-        "path": "http://localhost:8080/v2/partner/subscription/create/guest"
-    },
-    "createGuestSubscriptionAsync": {
-        "pathParams": [],
-        "queryParams": [],
-        "headers": [
-            {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-AccessKey",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-RequestID",
-            "requestContentType" : "string",
-            "type": "header"}
-        ],
-        "bodyParams": [
-            {
-                "RequestBody": {
-                    "partnerSubscriptionId": "test-2-9b5f1eb5-f562-494b-9ddb-6fb5522a66b8",
-                    "subscriptionDetails": {
-                        "packId": "TM.Premium.MY.1Month",
-                        "partnerMeta": {
-                            "partner_promotion_campaign": "some-test-campaign"
-                        }
-                    },
-                    "userDetails": {
-                        "email": {}
-                    }
-                },
-                "type" : "body",
-                "requestContentType": "JSON"
-            }
-        ],
-        "path": "http://localhost:8080/v2/partner/subscription/create-async/guest"
-    },
-
     "updateUserDetailsSync": {
+        "title": "Update User Details Sync",
+        "description": "This Api helps you update user details synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-AccessKey",
@@ -397,6 +453,11 @@
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -411,17 +472,19 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/user/update"
+        "path": "/v2/partner/subscription/user/update"
     },
 
     "updateUserDetailsAsync": {
+        "title": "Update User Details Async",
+        "description": "This Api helps you update user details asynchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-Token",
             "requestContentType" : "string",
             "type": "header"},
             {"name": "X-HS-AccessKey",
@@ -430,6 +493,11 @@
             {"name": "X-HS-RequestID",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -444,10 +512,15 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/user/update-async"
+        "path": "/v2/partner/subscription/user/update-async"
     },
 
     "getSubscription": {
+        "title": "Get Subscription",
+        "description": "This Api helps you to get the subscription",
+        "method": "GET",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
             {"name": "SubscriptionId", 
             "type": "pathParam",
@@ -465,11 +538,16 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/subscription/"
+        "path": "/v2/partner/subscription"
     },
     "updateSubscription": {
+        "title": "Update Subscription",
+        "description": "This Api helps you update a Subscription",
+        "method": "POST",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
-            {"name": "SampleRequest", 
+            {"name": "Event", 
             "type": "pathParam",
             "requestContentType":"string"},
             {"name": "SubscriptionId", 
@@ -491,33 +569,40 @@
         "bodyParams": [
             {
                "RequestBody" :{
-                    "payload": {
-                        "reason": "Need to terminate"
-                    }
-                },
+                "payload": {
+                    "reason": "Need to terminate"
+                }
+            },
                 "type": "body",
                 "requestContentType": "JSON"
             }
             
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/update/"
+        "path": "/v2/partner/subscription/update"
     },
     "moveSubscription": {
+        "title": "Move Subscription Sync",
+        "description": "This Api helps you move Subscription synchronously",
+        "method": "POST",
+        "successCode": "201",
+        "category": "public",
         "pathParams": [],
         "queryParams": [],
         "headers": [
             {"name": "Content-Type",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-Token",
-            "requestContentType" : "string",
-            "type": "header"},
             {"name": "X-HS-AccessKey",
             "requestContentType" : "string",
             "type": "header"},
-            {"name": "X-HS-RequestID",
+            {"name": "X-Request-Id",
             "requestContentType" : "string",
             "type": "header"}
+        ],
+        "variables": [
+            {"name": "X-HS-SecretKey",
+            "requestContentType": "string",
+            "type": "variable"}
         ],
         "bodyParams": [
             {
@@ -530,36 +615,40 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "http://localhost:8080/v2/partner/subscription/move"
+        "path": "/v2/partner/subscription/move"
     },
     "updateSubscriptionDetails": {
+        "title": "Update Subscription Details",
+        "description": "This Api helps you update Subscription details",
+        "method": "PATCH",
+        "successCode": "200",
+        "category": "public",
         "pathParams": [
-            {
-                "name" : "Partner Subscription ID",
-                "requestContentType" : "string",
-                "type" : "pathParam"
-            }
+            {"name": "PartnerSubscriptionId", 
+            "type": "pathParam",
+            "requestContentType":"string"}
         ],
         "queryParams": [],
         "headers": [
-            {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-AccessKey",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-RequestID",
-            "requestContentType" : "string",
-            "type": "header"}
+            {"name": "Content-Type", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-AccessKey", 
+            "type": "header",
+            "requestContentType":"string"},
+            {"name": "X-HS-RequestID", 
+            "type": "header",
+            "requestContentType":"string"}
         ],
         "bodyParams": [
             {
-                "RequestBody": {
-                    "subscriptionDetails": "{\"partner_promotion_campaign\":\"ALC.TV.30_OFF\"}"
-                },
-                "type" : "body",
+               "RequestBody" :{
+                "subscriptionDetails": "{\"partner_promotion_campaign\":\"ALC.TV.30_OFF\"}"
+            },
+                "type": "body",
                 "requestContentType": "JSON"
             }
+            
         ],
         "path": "/v2/partner/subscription/update-details"
     }

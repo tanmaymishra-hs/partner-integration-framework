@@ -5,20 +5,20 @@ import {Box, Card, CardContent} from '@mui/material'
 
 export default function FormElement(props) {
   const [isLoading, setisLoading] = useState(false)
-  const mapInputValues = (element)=>{
-    const {name, type, requestContentType} = element
-    return{
-      name: name,
-      type: type,
-      requestContentType: requestContentType
-    }
-  }
+  // const mapInputValues = (element)=>{
+  //   const {name, type, requestContentType} = element
+  //   return{
+  //     name: name,
+  //     type: type,
+  //     requestContentType: requestContentType
+  //   }
+  // }
   const handleSubmitLocal = (event)=>{
     setisLoading(true)
     handleSubmit(event, setisLoading)
   }
 
-  const {obj:{pathParams, queryParams, headers, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
+  const {obj:{pathParams, queryParams, headers, variables, bodyParams} = {}, title = "", description = "", handleSubmit, values, setValues, result} = props
 
   return (
     <Box width='100%' className='boxClass transparent'>
@@ -39,6 +39,11 @@ export default function FormElement(props) {
           </>
         ))}
         {headers && headers.map((element, idx) => (
+          <>
+            <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
+            </>
+        ))}
+        {variables && variables.map((element, idx) => (
           <>
             <Input values = {values} setValues = {setValues} name = {element.name} inputType = {element.type} placeholder = {element.name} type={element.type} requestContentType={element.requestContentType}/>
             </>

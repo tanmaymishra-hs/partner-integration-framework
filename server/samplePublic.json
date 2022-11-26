@@ -213,7 +213,7 @@
             "method": "POST",
             "successCode": "201",
             "category": "public",
-            "route": "/public/sync/create-guest-subscription",
+            "route": "/public/async/create-guest-subscription",
             "pathParams": [],
             "queryParams": [],
             "headers": [

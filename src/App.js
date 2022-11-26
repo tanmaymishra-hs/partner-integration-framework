@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './config.json';
 import './configPublic.json';
 import About from './Components/About';
@@ -19,36 +19,35 @@ Routes,
 } from "react-router-dom";
 import Home from './Components/Home';
 
-let config = require("./config.json");
-
 function App() {
-  // useEffect(()=>{
-  //   Singleton.getInstance(window.__APP_CONFIG__);
-  // }, [])
+  const [config, setConfig] = useState('')
+  useEffect(()=>{
+    setConfig(window.__APP_CONFIG__);
+  }, [])
   return (
     <div className="main">
      <ErrorBoundary>
       <Sidebar className="sidebarClass"/>
       <div className="container">
-        <Routes>
+        {config && <Routes>
           <Route exact path="/" element={<Home key="Home"/>}></Route>
           <Route exact path="/about" element={<About key="About"/>}></Route>
-          <Route exact path="/admin/create-partner" element={<Index key="CreatePartner" config = {config["config"]["apis"]["create"]}/>}></Route>
-          <Route exact path="/admin/delete-partner" element={<Index key="DeletePartner" config = {config["config"]["apis"]["deletePartner"]}/>}></Route>
-          <Route exact path="/admin/get-partner" element={<Index key="GetPartner" config = {config["config"]["apis"]["getPartner"]}/>}></Route>
-          <Route exact path="/admin/list-partner" element={<Index key="ListPartner" config = {config["config"]["apis"]["listPartners"]}/>}></Route>
-          <Route exact path="/admin/update-partner" element={<Index key="UpdatePartner" config = {config["config"]["apis"]["updatePartner"]}/>}></Route>
-          <Route exact path ="/public/sync/get-subscription" element={<Index key="GetSubscription" config = {config["config"]["apis"]["getSubscription"]}/>}></Route>
-          <Route exact path ="/public/sync/create-subscription" element={<CreateSubscriptionSyncIndex/>}></Route>
-          <Route exact path ="/public/sync/create-guest-subscription" element={<CreateGuestSubscriptionSyncIndex/>}></Route>
-          <Route exact path ="/public/sync/move-subscription" element={<MoveSubscriptionIndex/>}></Route>
-          <Route exact path ="/public/sync/update-subscription" element={<Index key="UpdateSubscription" config={config["config"]["apis"]["updateSubscription"]}/>}></Route>
-          <Route exact path ="/public/sync/update-subscription-details" element={<Index key="UpdateSubscriptionDetails" config={config["config"]["apis"]["updateSubscriptionDetails"]}/>}></Route>
-          <Route exact path ="/public/sync/update-user-details" element={<UpdateUserDetailsSyncIndex/>}></Route>
-          <Route exact path ="/public/async/create-guest-subscription" element={<CreateGuestSubscriptionAsyncIndex/>}></Route>
-          <Route exact path ="/public/async/create-subscription" element={<CreateSubscriptionAsyncIndex/>}></Route>
-          <Route exact path ="/public/async/update-user-details" element={<UpdateUserDetailsAsyncIndex/>}></Route>
-        </Routes>
+          <Route exact path={config['config']['apis']['create']['route']} element={<Index key="CreatePartner" config = {config["config"]["apis"]["create"]}/>}></Route>
+          <Route exact path={config['config']['apis']['deletePartner']['route']} element={<Index key="DeletePartner" config = {config["config"]["apis"]["deletePartner"]}/>}></Route>
+          <Route exact path={config['config']['apis']['getPartner']['route']} element={<Index key="GetPartner" config = {config["config"]["apis"]["getPartner"]}/>}></Route>
+          <Route exact path={config['config']['apis']['listPartners']['route']} element={<Index key="ListPartner" config = {config["config"]["apis"]["listPartners"]}/>}></Route>
+          <Route exact path={config['config']['apis']['updatePartner']['route']} element={<Index key="UpdatePartner" config = {config["config"]["apis"]["updatePartner"]}/>}></Route>
+          <Route exact path ={config['config']['apis']['getSubscription']['route']} element={<Index key="GetSubscription" config = {config["config"]["apis"]["getSubscription"]}/>}></Route>
+          <Route exact path ={config['config']['apis']['createSubscriptionSync']['route']} element={<CreateSubscriptionSyncIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['createGuestSubscriptionSync']['route']} element={<CreateGuestSubscriptionSyncIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['moveSubscription']['route']} element={<MoveSubscriptionIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['updateSubscription']['route']} element={<Index key="UpdateSubscription" config={config["config"]["apis"]["updateSubscription"]}/>}></Route>
+          <Route exact path ={config['config']['apis']['updateSubscriptionDetails']['route']} element={<Index key="UpdateSubscriptionDetails" config={config["config"]["apis"]["updateSubscriptionDetails"]}/>}></Route>
+          <Route exact path ={config['config']['apis']['updateUserDetailsSync']['route']} element={<UpdateUserDetailsSyncIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['createGuestSubscriptionAsync']['route']} element={<CreateGuestSubscriptionAsyncIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['createSubscriptionAsync']['route']} element={<CreateSubscriptionAsyncIndex/>}></Route>
+          <Route exact path ={config['config']['apis']['updateUserDetailsAsync']['route']} element={<UpdateUserDetailsAsyncIndex/>}></Route>
+        </Routes>}
       </div> 
       </ErrorBoundary>
     </div>

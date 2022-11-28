@@ -1,0 +1,13 @@
+{
+    "config" : {
+    "sideBar":[
+        {
+            "title": "NO ACCESS"
+        },
+        {
+            "title": "Support",
+            "path": "/support"
+        }
+    ]
+    }
+}

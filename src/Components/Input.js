@@ -4,7 +4,16 @@ export default function Input(props) {
     const {placeholder} = props || {}
     const [inputValue, setinputValue] = useState("");
     const [value, setValue] = useState(JSON.stringify(placeholder, null, 2));
-
+    // props.setValues(prevState => ({
+    //     ...prevState,
+    //     [props.name]: value
+    // }));
+    useEffect(()=>{
+        props.setValues(prevState => ({
+            ...prevState,
+            [props.name]: value
+        }));
+    }, [])
     // useEffect(() => {
     //     if(props.name === "RequestBody"){
     //             props.values[props.name] = JSON.stringify(placeholder)

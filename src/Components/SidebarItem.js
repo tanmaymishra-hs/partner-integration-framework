@@ -27,10 +27,6 @@ export default function SidebarItem({item}){
               { item.icon && <i className={item.icon}></i> }
               {item.title}
             </Link>
-            // {/* <a href={item.path} className="sidebar-item plain">
-            //     { item.icon && <i className={item.icon}></i> }
-            //     {item.title}
-            // </a> */}
         )
     }
 }

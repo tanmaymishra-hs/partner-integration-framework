@@ -1,7 +1,5 @@
 import React, {useState, useEffect, useLayoutEffect} from "react";
 import SidebarItem from "./SidebarItem"
-import sideBarItems from "../config.json"
-import { Singleton } from "../utils/configSingleton";
 
 export default function Sidebar(){
     const [config, setConfig] = useState('');

@@ -8,10 +8,15 @@ import App from "../src/App";
 import { getConfig } from "./fetchConfig";
 
 const app = express();
-const PORT = 3005;
+const PORT = 3000;
 
-app.use("^/$", (req, res) => {
-  let config = getConfig();
+app.use("^/$", async (req, res) => {
+  let config = await getConfig();
+
+  if(config[0] === "configDefault")
+  {
+    res.redirect(config[1])
+  }
   config = JSON.stringify(config)
   
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {

@@ -6,17 +6,17 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../src/App";
 import { getConfig } from "./fetchConfig";
-
+const cookieParser = require('cookie-parser')
 const app = express();
 const PORT = 3000;
 
+app.use(cookieParser())
 app.use("^/$", async (req, res) => {
-  let config = await getConfig();
-
-  // if(config[0] === "configDefault")
-  // {
-  //   res.redirect(config[1])
-  // }
+  let config = await getConfig(req, res);
+  if(config === null)
+  {
+    return
+  }
   config = JSON.stringify(config)
   
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {

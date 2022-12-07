@@ -8,10 +8,10 @@ import { getPublicResult } from '../utils/ResultGenerator';
 export function Index(props) {
     const [values, setValues] = useState({})
     const [result, setResult] = useState('')
-    const {config} = props
+    const {config, iAuthToken} = props
     const handleSubmit = async(event, setisLoading)=>{
         event.preventDefault();
-        const headers = getHeaders(config.headers, values)
+        const headers = getHeaders(config.headers, values,config.category==="admin"?iAuthToken:null)
         try{
             let baseUrl = replaceURL(config.path, config.pathParams, config.queryParams, values)
             // doubt here about how to grab the host and how it would work

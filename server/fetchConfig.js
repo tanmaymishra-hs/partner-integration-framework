@@ -22,12 +22,12 @@ export const getConfig = async (req, res)=>{
               if(value["access"] == "ADMIN_ACCESS")
               { 
                 console.log(value["access"])
-                return config
+                return {config : config, iAuthToken: iAuthToken}
               }
               else if(value["access"] == "PUBLIC_ACCESS")
               { 
                 console.log(value["access"])
-                return configPublic
+                return {config: configPublic, iAuthToken: iAuthToken}
               }
           }
           catch(error){
@@ -49,6 +49,6 @@ export const getConfig = async (req, res)=>{
                 console.log("Error Case: Your API request did not went through. The status code received was "+error.response.status+" with message "+error.response.statusText)
              }
     }
-          return configDefault
+          return {config: configDefault, iAuthToken: null}
     
 }

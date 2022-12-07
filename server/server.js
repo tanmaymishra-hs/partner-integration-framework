@@ -12,13 +12,46 @@ const PORT = 3000;
 
 app.use(cookieParser())
 app.use("^/$", async (req, res) => {
-  let config = await getConfig(req, res);
-  if(config === null)
+  let configMap = await getConfig(req, res);
+  if(configMap === null)
   {
     return
   }
+  let config = configMap['config']
+  let iAuthToken = configMap['iAuthToken']
   config = JSON.stringify(config)
-  
+  fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Some error happened");
+    }
+
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url}>
+        <App/>
+      </StaticRouter>
+    );
+
+    return res.send(
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>
+      <script>
+        (()=>{
+          window.__APP_CONFIG__=${config}
+          window.appData=${JSON.stringify({iAuthToken:iAuthToken})}
+        })()
+      </script>`),
+    );
+  });
+});
+app.use("^/admin", async (req, res) => {
+  let configMap = await getConfig(req, res);
+  if(configMap === null)
+  {
+    return
+  }
+  let config = configMap['config']
+  let iAuthToken = configMap['iAuthToken']
+  config = JSON.stringify(config)
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -36,13 +69,20 @@ app.use("^/$", async (req, res) => {
       <script>
         (()=>{
           window.__APP_CONFIG__=${config}
+          window.appData=${JSON.stringify({iAuthToken:iAuthToken})}
         })()
       </script>`)
     );
   });
 });
-app.use("^/admin", (req, res) => {
-  let config = getConfig();
+app.use("^/public", async (req, res) => {
+  let configMap = await getConfig(req, res);
+  if(configMap === null)
+  {
+    return
+  }
+  let config = configMap['config']
+  let iAuthToken = configMap['iAuthToken']
   config = JSON.stringify(config)
   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
     if (err) {
@@ -61,31 +101,7 @@ app.use("^/admin", (req, res) => {
       <script>
         (()=>{
           window.__APP_CONFIG__=${config}
-        })()
-      </script>`)
-    );
-  });
-});
-app.use("^/public", (req, res) => {
-  let config = getConfig();
-  config = JSON.stringify(config)
-  fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("Some error happened");
-    }
-
-    const html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url}>
-        <App />
-      </StaticRouter>
-    );
-
-    return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${html}</div>
-      <script>
-        (()=>{
-          window.__APP_CONFIG__=${config}
+          window.appData=${JSON.stringify({iAuthToken:iAuthToken})}
         })()
       </script>`)
     );

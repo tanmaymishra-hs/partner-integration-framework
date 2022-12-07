@@ -12,8 +12,10 @@ import Home from './Components/Home';
 
 function App() {
   const [config, setConfig] = useState('')
+  const [iAuthToken, setiAuthToken] = useState('')
   useEffect(()=>{
     setConfig(window.__APP_CONFIG__);
+    setiAuthToken(window.appData['iAuthToken'])
   }, [])
   return (
     <div className="main">
@@ -23,7 +25,7 @@ function App() {
         {config && <Routes>
           <Route exact path="/" element={<Home key="Home"/>}></Route>
           <Route exact path="/about" element={<About key="About"/>}></Route>
-          {Object.keys(config['config']['apis']).map((item, index)=> <Route exact path={config['config']['apis'][item]['route']} element={<Index key={config['config']['apis'][item]['title']} config={config['config']['apis'][item]}/>}></Route>)}
+          {Object.keys(config['config']['apis']).map((item, index)=> <Route exact path={config['config']['apis'][item]['route']} element={<Index key={config['config']['apis'][item]['title']} config={config['config']['apis'][item]} iAuthToken={config['config']['apis'][item]['category']==="admin"?iAuthToken:null}/>}></Route>)}
         </Routes>}
       </div> 
       </ErrorBoundary>

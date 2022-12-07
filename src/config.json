@@ -108,10 +108,6 @@
             {"name": "Content-Type",
             "type":"header",
             "requestContentType":"string", 
-            "inputType": "text"},
-            {"name": "X-HS-IAuth",
-            "type":"header",
-            "requestContentType":"string", 
             "inputType": "text"}
         ],
         "bodyParams": [
@@ -147,9 +143,6 @@
         "headers": [
             {"name": "Content-Type",
             "type":"header",
-            "requestContentType":"string"},
-            {"name": "X-HS-IAuth",
-            "type":"header",
             "requestContentType":"string"}
         ],
         "bodyParams": [],
@@ -178,9 +171,6 @@
         "headers": [
             {"name": "Content-Type",
             "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-IAuth",
-            "requestContentType" : "string",
             "type": "header"}
         ],
         "bodyParams": [],
@@ -208,9 +198,6 @@
         ],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-IAuth",
             "requestContentType" : "string",
             "type": "header"}
         ],
@@ -247,9 +234,6 @@
         ],
         "headers": [
             {"name": "Content-Type",
-            "requestContentType" : "string",
-            "type": "header"},
-            {"name": "X-HS-IAuth",
             "requestContentType" : "string",
             "type": "header"}
         ],

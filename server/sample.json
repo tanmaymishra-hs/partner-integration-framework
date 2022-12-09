@@ -14,23 +14,23 @@
             "children": [
                 {
                     "title": "Create Partner API",
-                    "path" : "/admin/create-partner"
+                    "path" : "/admin/create-partner/test"
                 },
                 {
                     "title": "Delete Partner API",
-                    "path" : "/admin/delete-partner"
+                    "path" : "/admin/delete-partner/test"
                 },
                 {
                     "title": "Get Partner API",
-                    "path" : "/admin/get-partner"
+                    "path" : "/admin/get-partner/test"
                 },
                 {
                     "title": "List Partners API",
-                    "path" : "/admin/list-partner"
+                    "path" : "/admin/list-partner/test"
                 },
                 {
                     "title": "Update Partner API",
-                    "path" : "/admin/update-partner"
+                    "path" : "/admin/update-partner/test"
                 }
                 
             ]
@@ -43,31 +43,41 @@
                     "children": [
                         {
                             "title" : "Create Subscription",
-                            "path" : "/public/sync/create-subscription"
+                            "children":[
+                                {
+                                    "title":"Test",
+                                    "path": "/public/sync/create-subscription/test"
+                                },
+                                {
+                                    "title":"Documentation",
+                                    "path": "/public/sync/create-subscription/doc"
+                                }
+
+                            ]
                         },
                         {
                             "title" : "Create Guest Subscription",
-                            "path" : "/public/sync/create-guest-subscription"
+                            "path" : "/public/sync/create-guest-subscription/test"
                         },
                         {
                             "title" : "Get Subscription",
-                            "path" : "/public/sync/get-subscription"
+                            "path" : "/public/sync/get-subscription/test"
                         },
                         {
                             "title" : "Move Subscription",
-                            "path" : "/public/sync/move-subscription"
+                            "path" : "/public/sync/move-subscription/test"
                         },
                         {
                             "title" : "Update Subscription",
-                            "path" : "/public/sync/update-subscription"
+                            "path" : "/public/sync/update-subscription/test"
                         },
                         {
                             "title" : "Update User Details",
-                            "path" : "/public/sync/update-user-details"
+                            "path" : "/public/sync/update-user-details/test"
                         },
                         {
                             "title" : "Update Subscription Details",
-                            "path" : "/public/sync/update-subscription-details"
+                            "path" : "/public/sync/update-subscription-details/test"
                         }
                     ]
                 },
@@ -76,15 +86,15 @@
                     "children": [
                         {
                             "title" : "Create Subscription",
-                            "path" : "/public/async/create-subscription"
+                            "path" : "/public/async/create-subscription/test"
                         },
                         {
                             "title" : "Create Guest Subscription Async" ,
-                            "path" : "/public/async/create-guest-subscription"
+                            "path" : "/public/async/create-guest-subscription/test"
                         },
                         {
                             "title" : "Update User Details",
-                            "path" : "/public/async/update-user-details"
+                            "path" : "/public/async/update-user-details/test"
                         }
                     ]
                 }
@@ -125,7 +135,8 @@
         }
             
         ],
-        "path": "/v2/partner/create"
+        "path": "/v2/partner/create",
+        "documentation": []
     },
     "listPartners": {
         "title": "List Partner",
@@ -148,7 +159,8 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/list"
+        "path": "/v2/partner/list",
+        "documentation": []
     },
     "getPartner": {
         "title": "Get Partner",
@@ -177,7 +189,8 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner"
+        "path": "/v2/partner",
+        "documentation": []
     },
     "updatePartner": {
         "title": "Update Partner",
@@ -214,7 +227,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/update"
+        "path": "/v2/partner/update",
+        "documentation": []
     },
     "deletePartner": {
         "title": "Delete Partner",
@@ -243,7 +257,8 @@
             "type": "header"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/delete"
+        "path": "/v2/partner/delete",
+        "documentation": []
     },
 
     "createSubscriptionSync": {
@@ -290,7 +305,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/subscription/create"
+        "path": "/v2/partner/subscription/create",
+        "documentation": ["Will have to add documentation here"]
     },
     "createSubscriptionAsync": {
         "title": "Create Subscription Async",
@@ -336,7 +352,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/subscription/create-async"
+        "path": "/v2/partner/subscription/create-async",
+        "documentation": []
     },
     "createGuestSubscriptionSync": {
         "title": "Create Guest Subscription Sync",
@@ -381,7 +398,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/subscription/create/guest"
+        "path": "/v2/partner/subscription/create/guest",
+        "documentation": []
     },
     "createGuestSubscriptionAsync": {
         "title": "Create Guest Subscription Async",
@@ -426,7 +444,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/subscription/create-async/guest"
+        "path": "/v2/partner/subscription/create-async/guest",
+        "documentation": []
     },
     "updateUserDetailsSync": {
         "title": "Update User Details Sync",
@@ -466,7 +485,8 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "/v2/partner/subscription/user/update"
+        "path": "/v2/partner/subscription/user/update",
+        "documentation": []
     },
 
     "updateUserDetailsAsync": {
@@ -507,7 +527,8 @@
             "requestContentType": "JSON"
         }
         ],
-        "path": "/v2/partner/subscription/user/update-async"
+        "path": "/v2/partner/subscription/user/update-async",
+        "documentation": []
     },
 
     "getSubscription": {
@@ -534,7 +555,8 @@
             "requestContentType":"string"}
         ],
         "bodyParams": [],
-        "path": "/v2/partner/subscription"
+        "path": "/v2/partner/subscription",
+        "documentation": []
     },
     "updateSubscription": {
         "title": "Update Subscription",
@@ -575,7 +597,8 @@
             }
             
         ],
-        "path": "/v2/partner/subscription/update"
+        "path": "/v2/partner/subscription/update",
+        "documentation": []
     },
     "moveSubscription": {
         "title": "Move Subscription Sync",
@@ -613,7 +636,8 @@
                 "requestContentType": "JSON"
             }
         ],
-        "path": "/v2/partner/subscription/move"
+        "path": "/v2/partner/subscription/move",
+        "documentation": []
     },
     "updateSubscriptionDetails": {
         "title": "Update Subscription Details",
@@ -649,7 +673,8 @@
             }
             
         ],
-        "path": "/v2/partner/subscription/update-details"
+        "path": "/v2/partner/subscription/update-details",
+        "documentation": []
     }
 
     

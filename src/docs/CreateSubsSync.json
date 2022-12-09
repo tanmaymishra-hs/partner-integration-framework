@@ -1,0 +1,311 @@
+[
+    {"title" : "Create Subscription Sync API"},
+    {"description": []},
+    {
+        "type":"content",
+        "title":"Overview",
+        "description":[
+            "The CreateSubscriptionSync operation creates a subscription for the given user and a given packId. A user is identified by a valid phone number for the country in which the user’s phone number is registered. A pack is identified by its name and will be provided to you when you register to use the Subscription Framework.",
+            "CreateSubscription is a synchronous operation which returns subscription details along with subscription status. A user can enjoy content only if the subscription is in ACTIVE state.",
+            "To help in financial reconciliation of the subscriptions at the end of their cycle, you’ll need to provide a string - partner_promotion_campaign to help in the reconciliation. You can work with our product/business team to agree upon the string(s) you will pass as partner_promotion_campaign.",
+            "You can optionally provide a custom start date and an expiry date while creating the subscription. Setting a custom start date defers the activation (turning the state to ACTIVE) of the subscription, and setting a custom expiry date terminates the subscription at this date which overrides the expiry date computed by the construct of the pack. These features can be availed on a case-to-case basis. If your business demands the use of the custom start date and expiry date features, please get in touch with our product team on how and when to use them."
+        ]
+    },
+    {
+        "type":"content",
+        "title":"API endpoint",
+        "description":["<domain>/v2/partner/subscription/create"]
+    },
+    {
+        "type":"content",
+        "title":"Request Method",
+        "description":["POST"]
+    },
+    {
+        "type": "table",
+        "heading": "Headers",
+        "description":[],
+        "Cols": ["Name", "Type", "Required", "Description"],
+        "Rows":[
+            {
+                "Name": "X-HS-AccessKey",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["It’s a unique key which is assigned to you at the time of onboarding. Together with X-HS-Token, it is used to authenticate the request."]
+            },
+            {
+                "Name": "X-HS-Token",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["It contains the encrypted request payload. Together with the X-HS-AccessKey, it is used to authenticate the request. Please see Appendix on how to generate the value for this header. "]
+            },
+            {
+                "Name": "X-HS-RequestID",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["A unique identifier for the request."]
+            }
+        ]
+    },
+    {
+        "type":"snippet",
+        "title":"Request Syntax",
+        "description":[],
+        "snippetInfo":[{
+                "partnerSubscriptionId": "string",
+                "userDetails": {
+                    "phoneNumber": "string",
+                    "email": {
+                        "emailId": "string",
+                        "verified": "Boolean"
+                    }
+                },
+                "subscriptionDetails": {
+                    "packId": "string",
+                    "startDate": "Number",
+                    "expiryDate": "Number",
+                    "partnerMeta": {
+                        "partner_promotion_campaign": "string"
+                    }
+                }
+            
+          }]
+    },
+    {
+        "type": "table",
+        "heading": "Request Parameters",
+        "description":[],
+        "Cols": ["Parameter Name", "Type", "Required", "Description"],
+        "Rows":[
+            {
+                "Parameter Name": "partnerSubscriptionId",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["A unique string which represents a subscription."]
+            },
+            {
+                "Parameter Name": "userDetails",
+                "Type": "Object",
+                "Required": "",
+                "Description": ["Specifies the details of the user who will be enjoying the benefits of this subscription."]
+            },
+            {
+                "Parameter Name": "phoneNumber",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["Specifies the phone number of the user. The validations imposed on this field depend on the country in which the subscription is created. Subscription creation fails if the provided phone number fails to comply with the phone number regex."]
+            },
+            {
+                "Parameter Name": "email",
+                "Type": "Object",
+                "Required": "No",
+                "Description": ["This field captures the email address of the user.","1. emailId: A string representing the user’s email address.", "2. verified: A boolean indicating if you have verified the email address or not. If you have not verified the email address, i.e. passed verified as false, Disney+hotstar will not update the email of the user in its database."]
+            },
+            {
+                "Parameter Name": "subscriptionDetails",
+                "Type": "Object",
+                "Required": "",
+                "Description": ["Specifies the required parameters needed to create a subscription."]
+            },
+            {
+                "Parameter Name": "packId",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["A string representing the pack for the subscription. Disney+hotstar shares the packId as part of the onboarding process."]
+            },
+            {
+                "Parameter Name": "startDate",
+                "Type": "Number",
+                "Required": "No",
+                "Description": ["A date in milliseconds indicating the time in future at which the subscription should activate. Please note that while creating a subscription with a start date, the start date should be more than 6 hours from the current time."]
+            },
+            {
+                "Parameter Name": "expiryDate",
+                "Type": "Number",
+                "Required": "No",
+                "Description": ["A date in milliseconds indicating the time at which the subscription expires. Setting this time overrides the expiry date computed from the logic embedded in the pack."]
+            },
+            {
+                "Parameter Name": "partnerMeta",
+                "Type": "Object",
+                "Required": "Yes",
+                "Description": ["A JSON structure which will capture any additional tags that you wish to attach to the subscription."]
+            },
+            {
+                "Parameter Name": "partner_promotion_campaign",
+                "Type": "String",
+                "Required": "Yes",
+                "Description": ["Specifies the business construct of the subscription. Please work with your business team to get the input for this field"]
+            }
+        ]
+    },
+    {
+        "type":"snippet",
+        "title":"Response Syntax",
+        "description":[],
+        "snippetInfo":[{
+            "subscription": {
+            "partnerSubscriptionId": "String",
+            "packId": "String",
+            "status": "String",
+            "meta": {
+            "partner_promotion_campaign": "String"
+            },
+            "createdOn": "Number",
+            "updatedOn": "Number",
+            "expiryTime": "Number"
+            },
+            "message": "String"
+            }]
+    },
+    {
+        "type": "table",
+        "heading": "Response Parameters",
+        "description":[],
+        "Cols": ["Parameter Name", "Required", "Description"],
+        "Rows":[
+            {
+                "Parameter Name": "subscription",
+                "Required": "No",
+                "Description": ["This object specifies the details of the created subscription. This object is empty in case of errors returned by the API."]
+            },
+            {
+                "Parameter Name": "partnerSubscriptionId",
+                "Required": "",
+                "Description": ["This is the same id which was passed in the request."]
+            },
+            {
+                "Parameter Name": "packId",
+                "Required": "",
+                "Description": ["This is the same packId which was passed in the request."]
+            },
+            {
+                "Parameter Name": "status",
+                "Required": "",
+                "Description": ["This specifies the state in which the subscription is. Possible values are FUTURE and ACTIVE. FUTURE is set when you pass a valid start date in the request, otherwise it is ACTIVE."]
+            },
+            {
+                "Parameter Name": "meta",
+                "Required": "",
+                "Description": ["Specifies the various attributes attached to the subscription. Currently, this supports “partner_promotion_campaign” and could support more fields if required."]
+            },
+            {
+                "Parameter Name": "createdOn",
+                "Required": "",
+                "Description": ["Time in milliseconds at which the subscription was created."]
+            },
+            {
+                "Parameter Name": "updatedOn",
+                "Required": "",
+                "Description": ["Time in milliseconds at which the subscription was last updated."]
+            },
+            {
+                "Parameter Name": "expiryTime",
+                "Required": "",
+                "Description": ["Time in milliseconds at which the subscription expires"]
+            },
+            {
+                "Parameter Name": "message",
+                "Required": "Yes",
+                "Description": ["Specifies the message in case of error use cases. In case of error scenarios described below, only the message is returned."]
+            }
+        ]
+    },
+    {
+        "type": "table",
+        "heading": "Errors",
+        "description":[],
+        "Cols": ["Error Code", "Error Name","Description"],
+        "Rows":[
+            {
+                "Error Code": "HTTP 400",
+                "Error Name": "Bad Request",
+                "Description": ["This occurs when the one or many request parameters are either missing or are not in the expected format as described in the Request Parameters.","The most common scenarios are: - 1. Invlaid phone number is provided. 2. Invalid packId is provided. 3. startDate is less than 6 hours from current time."]
+            },
+            {
+                "Error Code": "HTTP 409",
+                "Error Name": "Conflict",
+                "Description": ["This occurs when you attempt to create a new subscription with the same partnerSubscriptionId."]
+            },
+            {
+                "Error Code": "HTTP 500",
+                "Error Name": "Internal Server Error",
+                "Description": ["This occurs when an unexpected error is encountered during the execution of the API"]
+            },
+            {
+                "Error Code": "HTTP 403",
+                "Error Name": "Forbidden",
+                "Description": ["This occurs when the authentication of the request fails, i.e. the X-HS-Token passed in the request header and the encrypted payload generated by Disney+hotstar does not match."]
+            }
+        ]
+    },
+    {
+        "type":"content",
+        "title":"Examples",
+        "description":[]
+    },
+    {
+        "type":"snippet",
+        "title":"1) Successful creation of a subscription",
+        "description":["Sample Request"],
+        "snippetInfo":["curl --location --request POST 'https://partner-orchestrator-qa.pp.hotstar-labs.com/v2/partner/subscription/create' \\ --header 'Content-Type: application/json' \\ --header 'X-HS-AccessKey: 1215e34138de42dd8499deefad3' \\ --header 'X-HS-Token: 718fbb30bbfb5242c3a2ad194ce0b89cd01f5581e4ff2ca5584fc5a5175a9c7a' \\ --header 'X-HS-RequestID: 5242c3a2ad194ce0b89cd01f558' \\ --data-raw '{ \"partnerSubscriptionId\": \"649dce3c-e7f5-4e33-a846-76ded5ce9e\", \"userDetails\": { \"phoneNumber\": \"9189086754\", \"email\": { \"emailId\": \"johndoe@gmail.com\", \"verified\": false } }, \"subscriptionDetails\": { \"packId\": \"TM.Premium.MY.1Month\", \"partnerMeta\": { \"partner_promotion_campaign\": \"promotion\" } } }'"]
+    },
+    {
+        "type":"snippet",
+        "title":"",
+        "description":["Sample Response"],
+        "snippetInfo":[{
+            "subscription": {
+            "partnerSubscriptionId": "649dce3c-e7f5-4e33-a846-76ded5ce9e",
+            "packId": "TM.Premium.MY.1Month",
+            "status": "ACTIVE",
+            "meta": {
+            "partner_promotion_campaign": "promotion"
+            },
+            "createdOn": 1667833474000,
+            "updatedOn":1667833475000,
+            "expiryTime": 1667833974000
+            }
+            }]
+    },
+    {
+        "type":"snippet",
+        "title":"2) Successful creation of a subscription in FUTURE state",
+        "description":["Sample Request"],
+        "snippetInfo":["curl --location --request POST 'https://partner-orchestrator-qa.pp.hotstar-labs.com/v2/partner/subscription/create' \\ --header 'Content-Type: application/json' \\ --header 'X-HS-AccessKey: 1215e34138de42dd8499deefad3' \\ --header 'X-HS-Token: 718fbb30bbfb5242c3a2ad194ce0b89cd01f5581e4ff2ca5584fc5a5175a9c7a' \\ --header 'X-HS-RequestID: 5242c3a2ad194ce0b89cd01f558' \\ --data-raw '{ \"partnerSubscriptionId\": \"649dce3c-e7f5-4e33-a846-76ded5ce9e\",\"userDetails\": { \"phoneNumber\": \"9189086754\", \"email\": { \"emailId\": \"johndoe@gmail.com\", \"verified\": false } }, \"subscriptionDetails\": { \"packId\": \"TM.Premium.MY.1Month\", “startDate: 1667855074000, \"partnerMeta\": { \"partner_promotion_campaign\": \"promotion\" } } }'"]
+    },
+    {
+        "type":"snippet",
+        "title":"",
+        "description":["Sample Response"],
+        "snippetInfo":[{
+            "subscription": {
+            "partnerSubscriptionId": "649dce3c-e7f5-4e33-a846-76ded5ce9e",
+            "packId": "TM.Premium.MY.1Month",
+            "status": "FUTURE",
+            "meta": {
+            "partner_promotion_campaign": "promotion"
+            },
+            "createdOn": 1667833474000,
+            "updatedOn":1667833475000,
+            "expiryTime": 1667833974000
+            }
+            }]
+    },
+    {
+        "type":"snippet",
+        "title":"3) When Subscription creation fails",
+        "description":["Sample Request"],
+        "snippetInfo":["curl --location --request POST 'https://partner-orchestrator-qa.pp.hotstar-labs.com/v2/partner/subscription/create' \\ --header 'Content-Type: application/json' \\ --header 'X-HS-AccessKey: 1215e34138de42dd8499deefad3' \\ --header 'X-HS-Token: 718fbb30bbfb5242c3a2ad194ce0b89cd01f5581e4ff2ca5584fc5a5175a9c7a' \\ --header 'X-HS-RequestID: 5242c3a2ad194ce0b89cd01f558' \\ --data-raw '{ \"partnerSubscriptionId\": \"649dce3c-e7f5-4e33-a846-76ded5ce9e\", \"userDetails\": { \"email\": { \"emailId\": \"johndoe@gmail.com\", \"verified\": false }}, \"subscriptionDetails\": { \"packId\": \"TM.Premium.MY.\", \"partnerMeta\": { \"partner_promotion_campaign\": \"promotion\" } } }'"]
+    },
+    {
+        "type":"snippet",
+        "title":"",
+        "description":["Sample Response", "HTTP 400 Bad Request"],
+        "snippetInfo":[
+            {
+                "message": "[phoneNumber] cannot be empty"
+            }]
+    }
+]
+ 

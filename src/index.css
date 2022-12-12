@@ -376,6 +376,22 @@ pre{
 .Input div{
 	margin: 20px;
 }
+table{
+	margin: 50px;
+	border-collapse: collapse;
+}
+tr{
+	border: 2px solid;
+}
+td{
+	border-right: 2px solid;
+    padding: 10px;
+}
+th{
+	margin: 50px;
+    border-right: 2px solid;
+    padding: 25px;
+}
 
 
 

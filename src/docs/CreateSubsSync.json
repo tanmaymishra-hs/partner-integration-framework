@@ -1,6 +1,9 @@
 [
-    {"title" : "Create Subscription Sync API"},
-    {"description": []},
+    {
+        "type": "title",
+        "title" : "Create Subscription Sync API",
+        "description": []
+    },
     {
         "type":"content",
         "title":"Overview",

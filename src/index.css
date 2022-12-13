@@ -53,7 +53,8 @@
 }
 
 html, body{
-	height: 100%;
+	min-height: 100vh;
+	overflow: auto;
 	background: #000000;
 }
 body{
@@ -70,7 +71,7 @@ body{
 
 .container{
 	flex-grow: 1;
-	padding: 2em;
+	padding: 3em;
 	background-size: cover;
 	background-color: #000000;
 	background-position: center;
@@ -80,6 +81,8 @@ body{
 	justify-content: center;
 	text-align: center;
 	margin-left: 20%;
+	min-height: 100vh;
+	overflow: auto;
 }
 .title{
 	font-size: 3em;
@@ -186,6 +189,7 @@ body{
 	overflow-y: scroll;
 	z-index: 1;
 	padding-bottom: 5%;
+	/* min-width: fit-content; */
 }
 .Title-1{
 	font-family: 'Inter';
@@ -318,7 +322,7 @@ pre{
 	border: 1px solid;
 	border-radius: var(--RADIUS-03);
 	border-color: var(--BORDER-COLOR_L0);
-	background: transparent !important;
+	background: #202228;
 	/* overflow-x: scroll; */
 	/* overflow-y: scroll; */
 	white-space:pre-wrap;
@@ -377,7 +381,7 @@ pre{
 	margin: 20px;
 }
 table{
-	margin: 50px;
+	margin: 10px 0 50px;
 	border-collapse: collapse;
 	font-family: 'Inter';
 	font-weight: 400;
@@ -390,14 +394,34 @@ td{
 	border-right: 2px solid;
 	border-color: #696969;
     padding: 10px;
+	text-align: left;
 }
 th{
 	margin: 50px;
     border-right: 2px solid;
 	border-color: #696969;
     padding: 25px;
+	background: #707A94;
+	font-size: 20px;
 }
-
-
-
-
+.docHeading{
+	font-size: 40px;
+	font-family: 'Inter';
+	font-weight: 400;
+	text-align: left;
+	font-size: 40px;
+}
+.docPre{
+	margin-top: 10px;
+}
+.docPara{
+	font-family: 'Inter';
+	text-align: left;
+	margin: 20px 5px;
+}
+.snippetHeading{
+	font-size: 25px;
+}
+.snippetDesc{
+	font-size: 20px;
+}
